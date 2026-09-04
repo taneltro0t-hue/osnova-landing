@@ -285,6 +285,7 @@
 
   function initReveal() {
     const items = $$("[data-reveal]");
+    $$("[data-reveal-stagger]").forEach((g) => Array.from(g.children).forEach((c, i) => c.style.setProperty("--stagger", `${Math.min(i, 8) * 70}ms`)));
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced || !("IntersectionObserver" in window)) { items.forEach((i) => i.classList.add("is-revealed")); return; }
     document.documentElement.classList.add("js-motion");
@@ -312,6 +313,79 @@
     update();
   }
 
+  function initCounters() {
+    const nodes = $$("[data-count]");
+    if (!nodes.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    nodes.forEach((n) => {
+      const target = parseInt(n.dataset.count, 10);
+      const start = performance.now(); const dur = 1400;
+      const tick = (t) => {
+        const p = Math.min(1, (t - start) / dur); const e = 1 - Math.pow(1 - p, 3);
+        n.textContent = String(Math.round(target * e));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      n.textContent = "0";
+      setTimeout(() => requestAnimationFrame(tick), 500);
+    });
+  }
+
+  function initParallax() {
+    const media = $(".hero-media");
+    if (!media || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let ticking = false;
+    const update = () => { ticking = false; const y = Math.min(window.scrollY, 900); media.style.transform = `translateY(${y * 0.18}px)`; };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  }
+
+  function initMap() {
+    const frame = $("[data-map-frame]");
+    if (!frame) return;
+    const load = () => {
+      if (frame.dataset.loaded) return;
+      frame.dataset.loaded = "1";
+      const iframe = document.createElement("iframe");
+      iframe.src = frame.dataset.mapSrc; iframe.loading = "lazy"; iframe.title = "Карта: Ставрополь, улица Доваторцев"; iframe.allowFullscreen = true;
+      frame.append(iframe);
+    };
+    if (!("IntersectionObserver" in window)) { load(); return; }
+    new IntersectionObserver((entries, obs) => { if (entries.some((e) => e.isIntersecting)) { load(); obs.disconnect(); } }, { rootMargin: "400px" }).observe(frame);
+  }
+
+  function initDocs() {
+    const dialog = $("[data-docs-dialog]");
+    const open = $("[data-docs-open]");
+    if (!dialog || !open) return;
+    const grid = $("[data-docs-grid]", dialog);
+    const view = $("[data-docs-view]", dialog);
+    const viewImg = $("[data-docs-view-img]", dialog);
+    const viewCap = $("[data-docs-view-caption]", dialog);
+    const items = $$("[data-docs-item]", dialog);
+    let index = 0;
+    const show = (i) => {
+      index = (i + items.length) % items.length;
+      const it = items[index];
+      viewImg.src = it.dataset.full; viewImg.alt = it.dataset.caption; viewCap.textContent = `${index + 1} из ${items.length} · ${it.dataset.caption}`;
+      grid.hidden = true; view.hidden = false; dialog.scrollTop = 0;
+      const next = items[(index + 1) % items.length]; if (next) { const pre = new Image(); pre.src = next.dataset.full; }
+    };
+    const back = () => { view.hidden = true; grid.hidden = false; };
+    open.addEventListener("click", () => {
+      track("docs_open");
+      if (typeof dialog.showModal === "function") { back(); dialog.showModal(); } else window.open("https://основа26.рф/o-centre", "_blank", "noopener");
+    });
+    items.forEach((it) => it.addEventListener("click", () => { show(parseInt(it.dataset.docsItem, 10)); track("docs_view", { doc: it.dataset.caption }); }));
+    $("[data-docs-prev]", dialog)?.addEventListener("click", () => show(index - 1));
+    $("[data-docs-next]", dialog)?.addEventListener("click", () => show(index + 1));
+    $("[data-docs-back]", dialog)?.addEventListener("click", back);
+    $("[data-docs-close]", dialog)?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener("keydown", (e) => {
+      if (view.hidden) return;
+      if (e.key === "ArrowRight") show(index + 1);
+      if (e.key === "ArrowLeft") show(index - 1);
+    });
+  }
+
   function initChrome() {
     const hero = $(".hero");
     const header = $("[data-header]");
@@ -332,6 +406,9 @@
   initForms();
   initFaqTracking();
   initReveal();
-  initDayRail();
+  initCounters();
+  initParallax();
+  initMap();
+  initDocs();
   initChrome();
 })();

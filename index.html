@@ -14,7 +14,7 @@
   <link rel="preload" href="assets/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/hero-architecture.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500;700;800;900&display=swap">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body data-case="family">
@@ -63,8 +63,8 @@
         <aside class="hero-side">
           <dl class="hero-facts" aria-label="Центр в цифрах">
             <div><dt>с 2014</dt><dd>работаем в Ставрополе</dd></div>
-            <div><dt>847+</dt><dd>прошли программу восстановления</dd></div>
-            <div><dt>5</dt><dd>специалистов, стаж 16–31 год</dd></div>
+            <div><dt><span data-count="847">847</span>+</dt><dd>прошли программу восстановления</dd></div>
+            <div><dt><span data-count="5">5</span></dt><dd>специалистов, стаж 16–31 год</dd></div>
             <div><dt>от 40 мин</dt><dd>выезд по краю, круглосуточно</dd></div>
           </dl>
           <div class="hero-emergency">
@@ -81,7 +81,7 @@
           <p class="eyebrow">Почему семьи выбирают ОСНОВУ</p>
           <h2 id="proof-title" class="display">Не посредник и не сайт-агрегатор.<br><span>Собственный центр, своя команда, лицензированная медицина.</span></h2>
         </div>
-        <ul class="proof-grid" data-reveal>
+        <ul class="proof-grid" data-reveal data-reveal-stagger>
           <li>
             <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
             <h3>Свой загородный центр</h3>
@@ -157,24 +157,24 @@
       <div class="shell">
         <div class="conditions-heading" data-reveal>
           <div>
-            <p class="eyebrow eyebrow-light">Условия</p>
-            <h2 id="conditions-title" class="display">Загородный дом,<br><span>а не палата и не общежитие.</span></h2>
+            <p class="eyebrow eyebrow-light">Среда для восстановления</p>
+            <h2 id="conditions-title" class="display">Мы создали условия,<br><span>в которых восстановление становится возможным.</span></h2>
           </div>
-          <p>Реальные фотографии центра. Лица участников скрыты ради конфиденциальности. Приехать и посмотреть можно до поступления.</p>
+          <p>Загородный дом под Ставрополем: тихо, безопасно, без соблазнов и лишних раздражителей. На фотографиях реальный центр, лица участников скрыты ради конфиденциальности. Приехать и посмотреть можно до поступления.</p>
         </div>
 
-        <div class="conditions-grid" data-reveal>
+        <div class="conditions-grid" data-reveal data-reveal-stagger>
           <figure class="cond-photo cond-photo-large">
             <img src="assets/images/group-circle.webp" width="960" height="1287" loading="lazy" alt="Групповая работа в помещении центра, лица скрыты">
             <figcaption>Зал групповой работы</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="assets/images/bedroom.webp" width="960" height="1280" loading="lazy" alt="Жилая комната центра">
-            <figcaption>Комнаты на 2–3 человека</figcaption>
+            <figcaption>Жилые комнаты на 2–3 человека</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="assets/images/kitchen.webp" width="960" height="1287" loading="lazy" alt="Кухня и обеденная зона центра">
-            <figcaption>Кухня, 4-разовое питание</figcaption>
+            <figcaption>Кухня и общий стол</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="assets/images/pool.webp" width="960" height="1287" loading="lazy" alt="Бассейн центра, лица скрыты">
@@ -184,19 +184,19 @@
             <img src="assets/images/sauna.webp" width="960" height="1287" loading="lazy" alt="Баня центра, лица скрыты">
             <figcaption>Баня</figcaption>
           </figure>
-          <figure class="cond-photo cond-photo-wide">
-            <img src="assets/images/courtyard-evening.webp" width="960" height="1287" loading="lazy" alt="Совместное приготовление еды во дворе, лица скрыты">
-            <figcaption>Двор и общие вечера</figcaption>
+          <figure class="cond-photo cond-photo-court">
+            <img src="assets/images/courtyard-evening.webp" width="960" height="1287" loading="lazy" alt="Резиденты вместе готовят еду во дворе центра, лица скрыты">
+            <figcaption>Двор: готовим и ужинаем вместе</figcaption>
           </figure>
         </div>
 
-        <ul class="conditions-facts" data-reveal>
-          <li><strong>Лесная зона</strong><span>под Ставрополем, охраняемая территория</span></li>
-          <li><strong>2–3 человека</strong><span>в комнате, без общих спален</span></li>
-          <li><strong>4 раза в день</strong><span>питание, готовят на месте</span></li>
-          <li><strong>24 часа</strong><span>наблюдение и дежурный сотрудник</span></li>
-          <li><strong>Спорт</strong><span>тренажёрный зал, бассейн, баня, прогулки</span></li>
-          <li><strong>Семья на связи</strong><span>по правилам программы, а не «когда разрешат»</span></li>
+        <ul class="conditions-facts" data-reveal data-reveal-stagger>
+          <li><strong>Лесная зона</strong><span>загородное расположение, охраняемая территория</span></li>
+          <li><strong>2–3 человека</strong><span>в комнате: личное пространство и спокойный сон</span></li>
+          <li><strong>4-разовое питание</strong><span>готовят на месте, в общем распорядке дня</span></li>
+          <li><strong>Круглосуточно</strong><span>наблюдение и дежурный сотрудник</span></li>
+          <li><strong>Движение и отдых</strong><span>тренажёрный зал, бассейн, баня, прогулки</span></li>
+          <li><strong>Связь с семьёй</strong><span>по правилам программы, с участием психолога</span></li>
         </ul>
       </div>
     </section>
@@ -208,9 +208,9 @@
           <h2 id="team-title" class="display">Врачи и психологи с именами и стажем</h2>
           <p>Медицинский этап ведут психиатры-наркологи клиники-партнёра «Амадея». Реабилитацию и работу с семьёй ведёт команда ОСНОВЫ.</p>
         </div>
-        <ul class="team-grid" data-reveal>
+        <ul class="team-grid" data-reveal data-reveal-stagger>
           <li class="team-card">
-            <span class="team-avatar" aria-hidden="true">ОК</span>
+            <img class="team-photo" src="assets/images/korotina.webp" width="360" height="360" loading="lazy" alt="Ольга Викторовна Коротина">
             <h3>Коротина Ольга Викторовна</h3>
             <p class="team-role">Медицинский психолог, автор методики ресоциализации зависимых</p>
             <p class="team-meta">Стаж более 20 лет · ведущий специалист центра</p>
@@ -240,7 +240,11 @@
             <p class="team-meta">Стаж 16 лет · работа с резидентами и семьёй</p>
           </li>
           <li class="team-card team-card-note">
-            <p><strong>27 документов</strong> о квалификации команды: свидетельства о практике, сертификаты, благодарности. Покажем при визите или по запросу.</p>
+            <button type="button" class="docs-open" data-docs-open>
+              <strong>27 документов</strong>
+              <span>о квалификации команды: 7 свидетельств о практике, 17 сертификатов, 3 благодарности. Все с печатями, можно рассмотреть.</span>
+              <span class="docs-open-cta">Открыть документы <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
           </li>
         </ul>
       </div>
@@ -252,6 +256,7 @@
           <p class="eyebrow eyebrow-light">Медицинский партнёр</p>
           <h2 id="partner-title" class="display">Сначала врачи.<br><span>Потом реабилитация. В одной связке.</span></h2>
           <p>Многие центры либо только «снимают» состояние, либо только реабилитируют. У нас острый этап проводит лицензированная клиника, а восстановление продолжается в центре без потери времени между ними.</p>
+          <p>Психиатры-наркологи партнёра готовы сопровождать резидента на протяжении всей реабилитации, помимо штатного психолога центра: наблюдать состояние, корректировать назначения, участвовать в разборе сложных периодов. Дополнительные специалисты оплачиваются отдельно.</p>
           <a class="button button-signal" href="tel:+79289633280" data-phone-link>Узнать, с чего начать</a>
         </div>
         <div class="partner-card" data-reveal>
@@ -263,8 +268,9 @@
             <li>Вывод из запоя</li>
             <li>Кодирование по показаниям</li>
             <li>Психотерапия при зависимости</li>
+            <li>Сопровождение психиатром-наркологом на протяжении всей программы</li>
           </ul>
-          <p class="partner-note">Медицинские услуги оказываются по показаниям и после консультации специалиста. Оплачиваются отдельно медицинской организации.</p>
+          <p class="partner-note">Медицинские услуги оказываются по показаниям и после консультации специалиста. Оплачиваются отдельно медицинской организации; дополнительные специалисты, помимо штатного психолога, также оплачиваются отдельно.</p>
         </div>
       </div>
     </section>
@@ -275,6 +281,9 @@
           <p class="eyebrow">Программа и стоимость</p>
           <h2 id="program-title" class="display">Три этапа. Цена известна до поступления</h2>
           <p>Стоимость на уровне других центров Ставрополя. Разница в том, что за эти деньги: собственный дом, команда врачей и психологов, медицинский партнёр по лицензии.</p>
+          <blockquote class="program-quote">
+            <p>Цена программы несоизмерима с ущербом от употребления: потерянные деньги, здоровье, работа и отношения стоят семье дороже каждый месяц, пока ничего не меняется.</p>
+          </blockquote>
         </div>
         <div class="program-card" data-reveal>
           <p class="program-price">от 2 000 <small>₽ в сутки</small></p>
@@ -289,6 +298,7 @@
             <li>Ежедневные группы и индивидуальная работа с психологом</li>
             <li>Работа с семьёй на протяжении программы</li>
             <li>Спорт, бассейн, баня, прогулки по распорядку</li>
+            <li class="program-list-key">Безопасная территория без соблазнов и угрозы срыва ремиссии</li>
           </ul>
         </div>
       </div>
@@ -400,6 +410,39 @@
         </form>
       </div>
     </section>
+    <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="shell contacts-grid">
+        <div class="contacts-info" data-reveal>
+          <p class="eyebrow">Контакты</p>
+          <h2 id="contacts-title" class="display">Ставрополь. Центр рядом, врачи рядом</h2>
+          <dl class="contacts-list">
+            <div>
+              <dt>Телефон</dt>
+              <dd><a href="tel:+79289633280" data-phone-link>+7 928 963-32-80</a><br><small>круглосуточно, первичная консультация бесплатно</small></dd>
+            </div>
+            <div>
+              <dt>Реабилитационный центр</dt>
+              <dd>г. Ставрополь, ул. Доваторцев <span class="placeholder">[номер дома]</span><br><small>загородная территория, визит по договорённости</small></dd>
+            </div>
+            <div>
+              <dt>Медицинский партнёр</dt>
+              <dd>ООО «Амадея», г. Ставрополь, ул. 45-я Параллель, 2<br><small>консультация нарколога, детоксикация, вывод из запоя</small></dd>
+            </div>
+            <div>
+              <dt>Выезд по краю</dt>
+              <dd>Пятигорск, Кисловодск, Ессентуки, Минеральные Воды, Невинномысск, Михайловск и другие города<br><small>от 40 минут, круглосуточно</small></dd>
+            </div>
+          </dl>
+          <a class="button button-signal" href="tel:+79289633280" data-phone-link>Позвонить</a>
+        </div>
+        <div class="contacts-map" data-reveal>
+          <div class="map-frame" data-map-frame data-map-src="https://yandex.ru/map-widget/v1/?text=%D0%A1%D1%82%D0%B0%D0%B2%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%94%D0%BE%D0%B2%D0%B0%D1%82%D0%BE%D1%80%D1%86%D0%B5%D0%B2&z=14">
+            <div class="map-placeholder" aria-hidden="true"><span>Карта загружается</span></div>
+          </div>
+          <p class="map-note">После подтверждения номера дома карта будет показывать точную точку центра.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -443,7 +486,58 @@
     <button class="call-dialog-later" type="button" data-call-dialog-close>Не сейчас</button>
   </dialog>
 
+  <dialog class="docs-dialog" data-docs-dialog aria-labelledby="docs-title">
+    <div class="docs-head">
+      <div>
+        <p class="eyebrow">Команда · документы</p>
+        <h2 id="docs-title" class="display">27 документов о квалификации</h2>
+        <p>Свидетельства о практике, сертификаты и благодарности сотрудников. Нажмите на документ, чтобы рассмотреть.</p>
+      </div>
+      <button class="docs-close" type="button" data-docs-close aria-label="Закрыть">
+        <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul class="docs-grid" data-docs-grid>
+      <li><button type="button" class="docs-thumb" data-docs-item="0" data-full="assets/docs/full/01-svid-roman.webp" data-caption="Свидетельство о практике, РЦ ОСНОВА"><img src="assets/docs/thumbs/01-svid-roman.webp" width="420" height="560" loading="lazy" alt="Свидетельство о практике, РЦ ОСНОВА"><span><em>Свидетельство</em>Свидетельство о практике, РЦ ОСНОВА</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="1" data-full="assets/docs/full/02-svid-nikita-1.webp" data-caption="Свидетельство о практике, РЦ ОСНОВА"><img src="assets/docs/thumbs/02-svid-nikita-1.webp" width="420" height="560" loading="lazy" alt="Свидетельство о практике, РЦ ОСНОВА"><span><em>Свидетельство</em>Свидетельство о практике, РЦ ОСНОВА</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="2" data-full="assets/docs/full/03-svid-nikita-2.webp" data-caption="Свидетельство о практике, РЦ ОСНОВА"><img src="assets/docs/thumbs/03-svid-nikita-2.webp" width="420" height="560" loading="lazy" alt="Свидетельство о практике, РЦ ОСНОВА"><span><em>Свидетельство</em>Свидетельство о практике, РЦ ОСНОВА</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="3" data-full="assets/docs/full/04-svid-nikita-3.webp" data-caption="Свидетельство о практике, РЦ ОСНОВА"><img src="assets/docs/thumbs/04-svid-nikita-3.webp" width="420" height="560" loading="lazy" alt="Свидетельство о практике, РЦ ОСНОВА"><span><em>Свидетельство</em>Свидетельство о практике, РЦ ОСНОВА</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="4" data-full="assets/docs/full/05-svid-roma.webp" data-caption="Свидетельство о прохождении психологического тренинга"><img src="assets/docs/thumbs/05-svid-roma.webp" width="420" height="560" loading="lazy" alt="Свидетельство о прохождении психологического тренинга"><span><em>Свидетельство</em>Свидетельство о прохождении психологического тренинга</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="5" data-full="assets/docs/full/06-sert-shkola-1.webp" data-caption="Школа консультанта: программа 12 шагов и КПТ"><img src="assets/docs/thumbs/06-sert-shkola-1.webp" width="420" height="560" loading="lazy" alt="Школа консультанта: программа 12 шагов и КПТ"><span><em>Сертификат</em>Школа консультанта: программа 12 шагов и КПТ</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="6" data-full="assets/docs/full/07-sert-shkola-2.webp" data-caption="Школа консультанта"><img src="assets/docs/thumbs/07-sert-shkola-2.webp" width="420" height="560" loading="lazy" alt="Школа консультанта"><span><em>Сертификат</em>Школа консультанта</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="7" data-full="assets/docs/full/08-sert-shkola-3.webp" data-caption="Школа консультанта"><img src="assets/docs/thumbs/08-sert-shkola-3.webp" width="420" height="560" loading="lazy" alt="Школа консультанта"><span><em>Сертификат</em>Школа консультанта</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="8" data-full="assets/docs/full/09-sert-int.webp" data-caption="Международный сертификат психотерапевта"><img src="assets/docs/thumbs/09-sert-int.webp" width="420" height="315" loading="lazy" alt="Международный сертификат психотерапевта"><span><em>Сертификат</em>Международный сертификат психотерапевта</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="9" data-full="assets/docs/full/10-sert-int-2.webp" data-caption="Сертификат квалификации"><img src="assets/docs/thumbs/10-sert-int-2.webp" width="420" height="315" loading="lazy" alt="Сертификат квалификации"><span><em>Сертификат</em>Сертификат квалификации</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="10" data-full="assets/docs/full/11-sert-soyuz-1.webp" data-caption="Союз психотерапевтов: реабилитация аддиктивных расстройств"><img src="assets/docs/thumbs/11-sert-soyuz-1.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов: реабилитация аддиктивных расстройств"><span><em>Сертификат</em>Союз психотерапевтов: реабилитация аддиктивных расстройств</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="11" data-full="assets/docs/full/12-sert-soyuz-2.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/12-sert-soyuz-2.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="12" data-full="assets/docs/full/13-sert-soyuz-3.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/13-sert-soyuz-3.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="13" data-full="assets/docs/full/14-sert-soyuz-4.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/14-sert-soyuz-4.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="14" data-full="assets/docs/full/15-sert-soyuz-5.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/15-sert-soyuz-5.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="15" data-full="assets/docs/full/16-sert-soyuz-6.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/16-sert-soyuz-6.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="16" data-full="assets/docs/full/17-sert-soyuz-7.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/17-sert-soyuz-7.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="17" data-full="assets/docs/full/18-sert-soyuz-8.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/18-sert-soyuz-8.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="18" data-full="assets/docs/full/19-sert-soyuz-9.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/19-sert-soyuz-9.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="19" data-full="assets/docs/full/20-sert-soyuz-10.webp" data-caption="Союз психотерапевтов"><img src="assets/docs/thumbs/20-sert-soyuz-10.webp" width="420" height="315" loading="lazy" alt="Союз психотерапевтов"><span><em>Сертификат</em>Союз психотерапевтов</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="20" data-full="assets/docs/full/21-sert-other-1.webp" data-caption="Сертификат повышения квалификации"><img src="assets/docs/thumbs/21-sert-other-1.webp" width="420" height="315" loading="lazy" alt="Сертификат повышения квалификации"><span><em>Сертификат</em>Сертификат повышения квалификации</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="21" data-full="assets/docs/full/22-sert-other-2.webp" data-caption="Сертификат участника программы"><img src="assets/docs/thumbs/22-sert-other-2.webp" width="420" height="560" loading="lazy" alt="Сертификат участника программы"><span><em>Сертификат</em>Сертификат участника программы</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="22" data-full="assets/docs/full/23-blag-roman.webp" data-caption="Благодарность сотруднику центра"><img src="assets/docs/thumbs/23-blag-roman.webp" width="420" height="560" loading="lazy" alt="Благодарность сотруднику центра"><span><em>Благодарность</em>Благодарность сотруднику центра</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="23" data-full="assets/docs/full/24-blag-shevchenko-1.webp" data-caption="Благодарность МОО «Молодёжь за ЗОЖ»"><img src="assets/docs/thumbs/24-blag-shevchenko-1.webp" width="420" height="560" loading="lazy" alt="Благодарность МОО «Молодёжь за ЗОЖ»"><span><em>Благодарность</em>Благодарность МОО «Молодёжь за ЗОЖ»</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="24" data-full="assets/docs/full/25-blag-shevchenko-2.webp" data-caption="Благодарность сотруднику центра"><img src="assets/docs/thumbs/25-blag-shevchenko-2.webp" width="420" height="560" loading="lazy" alt="Благодарность сотруднику центра"><span><em>Благодарность</em>Благодарность сотруднику центра</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="25" data-full="assets/docs/full/26-svid-extra.webp" data-caption="Свидетельство о практике"><img src="assets/docs/thumbs/26-svid-extra.webp" width="420" height="560" loading="lazy" alt="Свидетельство о практике"><span><em>Свидетельство</em>Свидетельство о практике</span></button></li>
+      <li><button type="button" class="docs-thumb" data-docs-item="26" data-full="assets/docs/full/27-svid-extra-2.webp" data-caption="Свидетельство о практике"><img src="assets/docs/thumbs/27-svid-extra-2.webp" width="420" height="315" loading="lazy" alt="Свидетельство о практике"><span><em>Свидетельство</em>Свидетельство о практике</span></button></li>
+    </ul>
+    <div class="docs-view" data-docs-view hidden>
+      <button class="docs-nav docs-prev" type="button" data-docs-prev aria-label="Предыдущий документ"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <figure>
+        <img data-docs-view-img src="" alt="">
+        <figcaption data-docs-view-caption></figcaption>
+      </figure>
+      <button class="docs-nav docs-next" type="button" data-docs-next aria-label="Следующий документ"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="docs-back" type="button" data-docs-back>К списку документов</button>
+    </div>
+  </dialog>
+
   <script src="config.js?v=1"></script>
-  <script src="script.js?v=2" defer></script>
+  <script src="script.js?v=3" defer></script>
 </body>
 </html>
