@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/hero-architecture.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500;700;800;900&display=swap">
   <link rel="stylesheet" href="styles.css?v=1">
@@ -116,23 +117,23 @@
         </div>
 
         <div class="situations-layout">
-          <div class="situation-list" role="tablist" aria-label="Ситуации" data-reveal>
-            <button class="situation-row is-active" type="button" role="tab" data-scenario="family" aria-selected="true">
+          <div class="situation-list" role="group" aria-label="Ситуации" data-reveal>
+            <button class="situation-row is-active" type="button" data-scenario="family" aria-pressed="true">
               <span class="situation-kicker">Для семьи</span>
               <strong>Вы устали контролировать, уговаривать и ждать</strong>
               <span class="situation-copy">Разговоры заканчиваются конфликтом, а дом живёт в ожидании следующего кризиса.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="alcohol" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="alcohol" aria-pressed="false">
               <span class="situation-kicker">Алкоголь</span>
               <strong>Запои повторяются. Обещания не держатся</strong>
               <span class="situation-copy">После каждой паузы кажется, что всё закончилось. Потом круг начинается заново.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="drugs" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="drugs" aria-pressed="false">
               <span class="situation-kicker">Наркотики</span>
               <strong>Пропадают деньги и вещи. Он всё отрицает</strong>
               <span class="situation-copy">Поведение меняется, человек исчезает по ночам, а на вопросы отвечает раздражением.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="self" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="self" aria-pressed="false">
               <span class="situation-kicker">Мне самому</span>
               <strong>Хочу остановиться, но в одиночку не выходит</strong>
               <span class="situation-copy">Срывы повторяются, обещания себе не держатся. Можно начать с одного звонка.</span>

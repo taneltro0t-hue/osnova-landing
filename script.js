@@ -3,6 +3,7 @@
 
   const config = Object.assign({ formEndpoint: "", metrikaCounterId: 0 }, window.OSNOVA_LANDING_CONFIG || {});
   const PHONE = "+7 928 963-32-80";
+  const PHONE_HREF = "tel:+79289633280";
 
   const scenarios = {
     family: {
@@ -138,7 +139,7 @@
     $$("[data-scenario]").forEach((b) => {
       const on = b.dataset.scenario === scenario;
       b.classList.toggle("is-active", on);
-      b.setAttribute("aria-selected", String(on));
+      b.setAttribute("aria-pressed", String(on));
     });
     $$("[data-situation-image]").forEach((img) => img.classList.toggle("is-active", img.dataset.situationImage === scenario));
     $$("[data-case-input]").forEach((i) => { i.value = scenario; });
@@ -159,7 +160,10 @@
     const pathMap = { narkomaniya: "drugs", alkogolizm: "alcohol", semya: "family", sam: "self" };
     setScenario(params.get("case") || pathMap[fromPath] || storage.get("osnova_case") || "family");
     $$("[data-scenario]").forEach((b) => b.addEventListener("click", () => setScenario(b.dataset.scenario, { updateUrl: true, track: true })));
-    window.matchMedia("(max-width: 960px)").addEventListener("change", () => placeSituationVisual(currentCase()));
+    const mq = window.matchMedia("(max-width: 960px)");
+    const onChange = () => placeSituationVisual(currentCase());
+    if (typeof mq.addEventListener === "function") mq.addEventListener("change", onChange);
+    else if (typeof mq.addListener === "function") mq.addListener(onChange);
   }
 
   function initCallDialog() {
@@ -169,7 +173,7 @@
     open.addEventListener("click", () => {
       track("call_prompt_open");
       if (typeof dialog.showModal === "function") dialog.showModal();
-      else window.location.href = "tel:+79289633280";
+      else window.location.href = PHONE_HREF;
     });
     $$("[data-call-dialog-close]", dialog).forEach((b) => b.addEventListener("click", () => dialog.close()));
     dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
@@ -214,19 +218,21 @@
   async function sendForm(form) {
     const phone = form.elements.namedItem("phone");
     const err = $("[data-phone-error]", form);
+    const submit = $("button[type='submit']", form);
+    const label = $("[data-submit-label]", form) || submit;
+    if (!phone || !submit) return;
     const digits = normalizePhone(phone.value);
     phone.setAttribute("aria-invalid", String(digits.length !== 10));
-    err.textContent = digits.length === 10 ? "" : "Введите 10 цифр после +7";
+    if (err) err.textContent = digits.length === 10 ? "" : "Введите 10 цифр после +7";
     if (digits.length !== 10 || !form.checkValidity()) {
       form.reportValidity();
       setStatus(form, "Проверьте телефон и согласие на обработку данных.", true);
       return;
     }
-    const submit = $("button[type='submit']", form);
-    const label = $("[data-submit-label]", form);
+    const originalLabel = label.textContent;
     submit.disabled = true; label.textContent = "Отправляем"; setStatus(form, "");
 
-    const done = () => { submit.disabled = false; label.textContent = "Перезвоните мне"; };
+    const done = () => { submit.disabled = false; label.textContent = originalLabel; };
 
     if (isPreviewHost()) {
       await new Promise((r) => setTimeout(r, 450));
@@ -267,7 +273,8 @@
       form.addEventListener("input", start);
       form.addEventListener("submit", (e) => { e.preventDefault(); sendForm(form); });
       const phone = form.elements.namedItem("phone");
-      phone.addEventListener("input", () => { phone.value = formatPhone(phone.value); phone.removeAttribute("aria-invalid"); $("[data-phone-error]", form).textContent = ""; });
+      const err = $("[data-phone-error]", form);
+      if (phone) phone.addEventListener("input", () => { phone.value = formatPhone(phone.value); phone.removeAttribute("aria-invalid"); if (err) err.textContent = ""; });
     });
     $$("[data-scroll-form]").forEach((a) => a.addEventListener("click", () => track("callback_scroll")));
   }

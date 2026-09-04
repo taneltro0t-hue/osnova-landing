@@ -50,7 +50,7 @@ for a, b in img_map.items():
 for attr in ("required", "open", "novalidate", "disabled"):
     body = re.sub(rf"\s{attr}(?=[\s>])", f' {attr}="{attr}"', body)
 body = body.replace(' fetchpriority="high"', "").replace(' decoding="async"', "").replace(' loading="lazy"', "")
-body = body.replace('<html', '<html')
+body = re.sub(r"\s(data-[a-z-]+)(?=[\s>])", r' \1="\1"', body)
 
 def artboard(title: str, inner: str, extra_css: str = "") -> str:
     return f"""<!doctype html>

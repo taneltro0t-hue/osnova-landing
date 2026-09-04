@@ -58,6 +58,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .skip-link { position: absolute; left: -999px; top: 8px; background: var(--signal); color: var(--ink); padding: 8px 12px; z-index: 100; }
 .skip-link:focus { left: 8px; }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 /* Кнопки */
 .button {
@@ -72,7 +73,6 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .button-signal:hover { background: var(--signal-2); }
 .button-ghost { background: transparent; color: var(--on-deep); border-color: var(--on-deep-line); }
 .button-ghost:hover { border-color: var(--on-deep); }
-.button-dark { background: var(--deep); color: var(--on-deep); }
 
 /* Шапка */
 .site-header {
@@ -280,7 +280,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .form-status.is-error { color: var(--danger); }
 
 /* Подвал */
-.site-footer { background: var(--ground-2); padding: 56px 0 120px; font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); }
+.site-footer { background: var(--ground-2); padding: 56px 0 64px; font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 40px; }
 .footer-brand img { width: 200px; height: auto; mix-blend-mode: multiply; margin-bottom: 14px; }
 .footer-brand p { max-width: 36ch; }

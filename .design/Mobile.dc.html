@@ -68,6 +68,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .skip-link { position: absolute; left: -999px; top: 8px; background: var(--signal); color: var(--ink); padding: 8px 12px; z-index: 100; }
 .skip-link:focus { left: 8px; }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 /* Кнопки */
 .button {
@@ -82,7 +83,6 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .button-signal:hover { background: var(--signal-2); }
 .button-ghost { background: transparent; color: var(--on-deep); border-color: var(--on-deep-line); }
 .button-ghost:hover { border-color: var(--on-deep); }
-.button-dark { background: var(--deep); color: var(--on-deep); }
 
 /* Шапка */
 .site-header {
@@ -290,7 +290,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .form-status.is-error { color: var(--danger); }
 
 /* Подвал */
-.site-footer { background: var(--ground-2); padding: 56px 0 120px; font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); }
+.site-footer { background: var(--ground-2); padding: 56px 0 64px; font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 40px; }
 .footer-brand img { width: 200px; height: auto; mix-blend-mode: multiply; margin-bottom: 14px; }
 .footer-brand p { max-width: 36ch; }
@@ -388,7 +388,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
   
 
-  <header class="site-header" data-header>
+  <header class="site-header" data-header="data-header">
     <div class="shell header-inner">
       <a class="wordmark" href="#top" aria-label="ОСНОВА, реабилитационный центр">
         <svg class="mark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false">
@@ -400,7 +400,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       </a>
       <div class="header-contact">
         <span class="header-note">Разговор конфиденциален</span>
-        <a class="phone-link phone-link-header" href="tel:+79289633280" data-phone-link>+7 928 963-32-80</a>
+        <a class="phone-link phone-link-header" href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a>
       </div>
     </div>
   </header>
@@ -413,14 +413,14 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       </div>
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow eyebrow-light" data-hero-eyebrow>Помощь семье при зависимости · Ставрополь</p>
-          <h1 id="hero-title" class="display" data-hero-title>Обещает бросить.<br>И всё начинается снова.</h1>
-          <p class="hero-lead" data-hero-lead>Если уговоры и контроль не работают, позвоните. За один разговор разберём, что можно сделать сегодня, и честно скажем, чем можем помочь, а чем нет.</p>
+          <p class="eyebrow eyebrow-light" data-hero-eyebrow="data-hero-eyebrow">Помощь семье при зависимости · Ставрополь</p>
+          <h1 id="hero-title" class="display" data-hero-title="data-hero-title">Обещает бросить.<br>И всё начинается снова.</h1>
+          <p class="hero-lead" data-hero-lead="data-hero-lead">Если уговоры и контроль не работают, позвоните. За один разговор разберём, что можно сделать сегодня, и честно скажем, чем можем помочь, а чем нет.</p>
           <div class="hero-actions">
-            <a class="button button-signal" href="tel:+79289633280" data-phone-link>Позвонить и разобрать ситуацию</a>
-            <a class="button button-ghost" href="#callback" data-scroll-form>Попросить перезвонить</a>
+            <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Позвонить и разобрать ситуацию</a>
+            <a class="button button-ghost" href="#callback" data-scroll-form="data-scroll-form">Попросить перезвонить</a>
           </div>
-          <a class="hero-phone" href="tel:+79289633280" data-phone-link>+7 928 963-32-80</a>
+          <a class="hero-phone" href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a>
           <ul class="hero-trust" aria-label="Условия первого разговора">
             <li>Можно обратиться без него</li>
             <li>Без давления и осуждения</li>
@@ -450,11 +450,11 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
     <section class="section promises" id="promises" aria-labelledby="promises-title">
       <div class="shell">
-        <div class="section-heading" data-reveal>
+        <div class="section-heading" data-reveal="data-reveal">
           <p class="eyebrow">Вы это уже читали в рекламе</p>
           <h2 id="promises-title" class="display">Что обещают на этом рынке.<br><span>И что мы говорим вместо этого.</span></h2>
         </div>
-        <ol class="ledger" data-reveal>
+        <ol class="ledger" data-reveal="data-reveal">
           <li class="ledger-row">
             <p class="ledger-claim"><span class="strike">Гарантия избавления от зависимости</span></p>
             <p class="ledger-answer">Зависимость не гарантируется ни в одну сторону. Мы отвечаем за то, что в наших руках: режим, ежедневную работу с поведением и участие семьи.</p>
@@ -472,51 +472,51 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <p class="ledger-answer">Срыв не повод для торга. Мы заранее проговариваем с семьёй, что делаем, если он случится, и не прячем это в сноску.</p>
           </li>
         </ol>
-        <p class="promises-foot" data-reveal>Вместо обещаний ниже показываем, как здесь проходит день. Это можно проверить: приехать и посмотреть.</p>
+        <p class="promises-foot" data-reveal="data-reveal">Вместо обещаний ниже показываем, как здесь проходит день. Это можно проверить: приехать и посмотреть.</p>
       </div>
     </section>
 
     <section class="section situations" id="situations" aria-labelledby="situations-title">
       <div class="shell">
-        <div class="section-heading narrow" data-reveal>
+        <div class="section-heading narrow" data-reveal="data-reveal">
           <p class="eyebrow">Начнём с главного</p>
           <h2 id="situations-title" class="display">В какой точке вы сейчас?</h2>
           <p>Выберите то, что ближе. Страница подстроится под вашу ситуацию.</p>
         </div>
 
         <div class="situations-layout">
-          <div class="situation-list" role="tablist" aria-label="Ситуации" data-reveal>
-            <button class="situation-row is-active" type="button" role="tab" data-scenario="family" aria-selected="true">
+          <div class="situation-list" role="group" aria-label="Ситуации" data-reveal="data-reveal">
+            <button class="situation-row is-active" type="button" data-scenario="family" aria-pressed="true">
               <span class="situation-kicker">Для семьи</span>
               <strong>Вы устали контролировать, уговаривать и ждать</strong>
               <span class="situation-copy">Разговоры заканчиваются конфликтом, а дом живёт в ожидании следующего кризиса.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="alcohol" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="alcohol" aria-pressed="false">
               <span class="situation-kicker">Алкоголь</span>
               <strong>Запои повторяются. Обещания не держатся</strong>
               <span class="situation-copy">После каждой паузы кажется, что всё закончилось. Потом круг начинается заново.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="drugs" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="drugs" aria-pressed="false">
               <span class="situation-kicker">Наркотики</span>
               <strong>Пропадают деньги и вещи. Он всё отрицает</strong>
               <span class="situation-copy">Поведение меняется, человек исчезает по ночам, а на вопросы отвечает раздражением.</span>
             </button>
-            <button class="situation-row" type="button" role="tab" data-scenario="self" aria-selected="false">
+            <button class="situation-row" type="button" data-scenario="self" aria-pressed="false">
               <span class="situation-kicker">Мне самому</span>
               <strong>Хочу остановиться, но в одиночку не выходит</strong>
               <span class="situation-copy">Срывы повторяются, обещания себе не держатся. Можно начать с одного звонка.</span>
             </button>
           </div>
 
-          <article class="situations-visual" data-situation-visual data-reveal>
+          <article class="situations-visual" data-situation-visual="data-situation-visual" data-reveal="data-reveal">
             <img class="situation-image is-active" src="situation-family.jpg" width="720" height="1080" alt="Уставшая родственница сидит ночью за кухонным столом" data-situation-image="family">
             <img class="situation-image" src="situation-alcohol.jpg" width="720" height="1080" alt="Родственница смотрит на близкого после завершившегося запоя" data-situation-image="alcohol">
             <img class="situation-image" src="situation-drugs.jpg" width="720" height="1080" alt="Родственница держит телефон у открытой двери поздним вечером" data-situation-image="drugs">
             <img class="situation-image" src="courtyard-evening.jpg" width="960" height="1287" alt="Общий вечер во дворе центра, лица участников скрыты" data-situation-image="self">
             <div class="situation-visual-content" aria-live="polite">
-              <p class="situation-visual-kicker" data-situation-visual-kicker>Помощь родственнику</p>
-              <h3 class="display" data-situation-visual-title>Можно начать с разговора без него.</h3>
-              <button class="button button-signal" type="button" data-call-prompt-open>Получить помощь</button>
+              <p class="situation-visual-kicker" data-situation-visual-kicker="data-situation-visual-kicker">Помощь родственнику</p>
+              <h3 class="display" data-situation-visual-title="data-situation-visual-title">Можно начать с разговора без него.</h3>
+              <button class="button button-signal" type="button" data-call-prompt-open="data-call-prompt-open">Получить помощь</button>
             </div>
           </article>
         </div>
@@ -525,7 +525,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
     <section class="section day" id="day" aria-labelledby="day-title">
       <div class="shell">
-        <div class="day-heading" data-reveal>
+        <div class="day-heading" data-reveal="data-reveal">
           <div>
             <p class="eyebrow eyebrow-light">Вместо процентов</p>
             <h2 id="day-title" class="display">Один день в центре.<br><span>По часам.</span></h2>
@@ -533,10 +533,10 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <p>Так выглядит будний день резидента. Точное расписание зависит от этапа программы. Лица на фотографиях скрыты ради конфиденциальности.</p>
         </div>
 
-        <div class="day-track" data-day-track>
-          <div class="day-rail" aria-hidden="true"><span class="day-rail-fill" data-day-fill></span></div>
+        <div class="day-track" data-day-track="data-day-track">
+          <div class="day-rail" aria-hidden="true"><span class="day-rail-fill" data-day-fill="data-day-fill"></span></div>
           <ol class="day-list">
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="07:30">07:30</time>
               <div class="day-body">
                 <h3>Подъём, зарядка, порядок в комнате</h3>
@@ -544,7 +544,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="bedroom.jpg" width="960" height="1280" alt="Жилая комната центра"><figcaption>Жилые комнаты</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="09:00">09:00</time>
               <div class="day-body">
                 <h3>Утренняя группа</h3>
@@ -552,14 +552,14 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="group-circle.jpg" width="960" height="1287" alt="Групповая работа в помещении центра, лица скрыты"><figcaption>Групповая работа</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="11:00">11:00</time>
               <div class="day-body">
                 <h3>Индивидуальная работа и задания</h3>
                 <p>Разбор того, что именно возвращает к употреблению: ситуации, люди, чувства, привычные ходы.</p>
               </div>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="13:00">13:00</time>
               <div class="day-body">
                 <h3>Обед и дежурство по кухне</h3>
@@ -567,7 +567,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="kitchen.jpg" width="960" height="1287" alt="Кухня и обеденная зона центра"><figcaption>Кухня</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="15:00">15:00</time>
               <div class="day-body">
                 <h3>Спорт, бассейн, баня по расписанию</h3>
@@ -575,7 +575,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="pool.jpg" width="960" height="1287" alt="Бассейн центра, лица скрыты"><figcaption>Бассейн</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="18:00">18:00</time>
               <div class="day-body">
                 <h3>Вечерняя группа</h3>
@@ -583,7 +583,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="sauna.jpg" width="960" height="1287" alt="Баня центра, лица скрыты"><figcaption>Баня</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="20:00">20:00</time>
               <div class="day-body">
                 <h3>Общий вечер во дворе</h3>
@@ -591,7 +591,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
               </div>
               <figure class="day-photo"><img src="courtyard-evening.jpg" width="960" height="1287" alt="Совместное приготовление еды во дворе, лица скрыты"><figcaption>Двор центра</figcaption></figure>
             </li>
-            <li class="day-item" data-reveal>
+            <li class="day-item" data-reveal="data-reveal">
               <time class="day-time" datetime="22:30">22:30</time>
               <div class="day-body">
                 <h3>Отбой</h3>
@@ -601,23 +601,23 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           </ol>
         </div>
 
-        <div class="day-cta" data-reveal>
+        <div class="day-cta" data-reveal="data-reveal">
           <p>Хотите увидеть это не на фотографиях? Спросите о визите в центр.</p>
-          <a class="button button-signal" href="tel:+79289633280" data-phone-link>Спросить о визите</a>
+          <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Спросить о визите</a>
         </div>
       </div>
     </section>
 
     <section class="section call-plan" id="after-call" aria-labelledby="call-plan-title">
       <div class="shell call-plan-grid">
-        <div class="call-plan-intro" data-reveal>
+        <div class="call-plan-intro" data-reveal="data-reveal">
           <p class="eyebrow">Не просто «оставьте заявку»</p>
           <h2 id="call-plan-title" class="display">После звонка у вас будет план</h2>
           <p>Не нужно заранее знать диагноз, программу или правильные слова. Расскажите, что происходит дома.</p>
-          <a class="phone-display" href="tel:+79289633280" data-phone-link><small>Позвонить сейчас</small>+7 928 963-32-80</a>
+          <a class="phone-display" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Позвонить сейчас</small>+7 928 963-32-80</a>
           <p class="sla-note">Отвечаем <span class="placeholder">[время ответа: подтвердить]</span></p>
         </div>
-        <ol class="call-plan-steps" data-reveal>
+        <ol class="call-plan-steps" data-reveal="data-reveal">
           <li>
             <span class="step-index">1</span>
             <div><h3>Уточним, что происходит прямо сейчас</h3><p>Что употребляет близкий, как давно длится кризис и есть ли признаки, при которых нельзя ждать.</p></div>
@@ -637,11 +637,11 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
     <section class="section stages" id="stages" aria-labelledby="stages-title">
       <div class="shell">
-        <div class="section-heading" data-reveal>
+        <div class="section-heading" data-reveal="data-reveal">
           <p class="eyebrow">Честная граница услуг</p>
           <h2 id="stages-title" class="display">Снять острое состояние мало.<br><span>Важно, чтобы всё не началось снова.</span></h2>
         </div>
-        <div class="stages-grid" data-reveal>
+        <div class="stages-grid" data-reveal="data-reveal">
           <article class="stage stage-medical">
             <p class="stage-label">Когда нужна медицина</p>
             <h3>Безопасно пройти острый этап</h3>
@@ -656,18 +656,18 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <p class="stage-owner">Реабилитационный этап: центр «ОСНОВА», Ставрополь</p>
           </article>
         </div>
-        <p class="stages-foot" data-reveal>Не знаете, с какого этапа начинать? Это нормально. <a href="tel:+79289633280" data-phone-link>Позвоните</a>, разберём вместе.</p>
+        <p class="stages-foot" data-reveal="data-reveal">Не знаете, с какого этапа начинать? Это нормально. <a href="tel:+79289633280" data-phone-link="data-phone-link">Позвоните</a>, разберём вместе.</p>
       </div>
     </section>
 
     <section class="section terms" id="terms" aria-labelledby="terms-title">
       <div class="shell terms-grid">
-        <div class="terms-intro" data-reveal>
+        <div class="terms-intro" data-reveal="data-reveal">
           <p class="eyebrow">Без звёздочек</p>
           <h2 id="terms-title" class="display">Что входит и сколько стоит</h2>
           <p>Цену называем до поступления, а не после. Рассрочку и варианты оплаты обсуждаем по телефону.</p>
         </div>
-        <div class="terms-card" data-reveal>
+        <div class="terms-card" data-reveal="data-reveal">
           <p class="terms-price"><span class="placeholder">[стоимость]</span> <small>₽ в месяц</small></p>
           <p class="terms-duration">Программа: <span class="placeholder">[срок]</span></p>
           <ul class="terms-list">
@@ -683,30 +683,30 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
     <section class="section faq" id="faq" aria-labelledby="faq-title">
       <div class="shell faq-grid">
-        <div class="faq-intro" data-reveal>
+        <div class="faq-intro" data-reveal="data-reveal">
           <p class="eyebrow">Когда трудно решиться</p>
           <h2 id="faq-title" class="display">Вопросы, которые обычно задают шёпотом</h2>
           <p>Можно не рассказывать всё сразу. Начните с одного вопроса.</p>
-          <a class="phone-display" href="tel:+79289633280" data-phone-link><small>Позвонить конфиденциально</small>+7 928 963-32-80</a>
+          <a class="phone-display" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Позвонить конфиденциально</small>+7 928 963-32-80</a>
         </div>
-        <div class="faq-list" data-reveal>
-          <details open="open" data-faq>
+        <div class="faq-list" data-reveal="data-reveal">
+          <details open="open" data-faq="data-faq">
             <summary>Он не хочет ничего менять. Есть смысл звонить?</summary>
             <p>Да. Первый разговор может пройти только с родственником. Мы не обещаем согласие близкого, но поможем понять доступные действия и подготовить разговор без давления.</p>
           </details>
-          <details data-faq>
+          <details data-faq="data-faq">
             <summary>Можно обратиться без него?</summary>
             <p>Да. Вы можете сначала описать ситуацию сами. Это не обязывает вас принимать решение или сразу привозить человека в центр.</p>
           </details>
-          <details data-faq>
+          <details data-faq="data-faq">
             <summary>Что будет, если он сорвётся после программы?</summary>
             <p>Срыв не делает помощь бессмысленной. Мы заранее договариваемся с семьёй, что делать в этом случае, и разбираем, что предшествовало возвращению к употреблению.</p>
           </details>
-          <details data-faq>
+          <details data-faq="data-faq">
             <summary>Чем это отличается от клиники?</summary>
             <p>Клиника снимает острое состояние. Реабилитация занимается тем, что к нему привело: поведением, окружением, привычными ходами. Медицинский этап у нас проводит лицензированный партнёр, реабилитацию ведёт «ОСНОВА».</p>
           </details>
-          <details data-faq>
+          <details data-faq="data-faq">
             <summary>Кому попадёт мой номер?</summary>
             <p>Номер используется только для ответа на ваше обращение и обрабатывается по опубликованной <a href="privacy.html">Политике обработки персональных данных</a>.</p>
           </details>
@@ -716,29 +716,29 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
     <section class="section final-cta" id="callback" aria-labelledby="callback-title">
       <div class="shell final-grid">
-        <div class="final-copy" data-reveal>
-          <p class="eyebrow eyebrow-light" data-final-eyebrow>Можно начать без него</p>
-          <h2 id="callback-title" class="display" data-final-title>Не ждите идеального момента для разговора</h2>
-          <p data-final-lead>Позвоните сами. Даже если близкий пока отказывается признавать проблему.</p>
-          <a class="button button-signal final-call-button" href="tel:+79289633280" data-phone-link>Позвонить конфиденциально</a>
-          <a class="final-phone" href="tel:+79289633280" data-phone-link><small>Конфиденциальный звонок</small>+7 928 963-32-80</a>
+        <div class="final-copy" data-reveal="data-reveal">
+          <p class="eyebrow eyebrow-light" data-final-eyebrow="data-final-eyebrow">Можно начать без него</p>
+          <h2 id="callback-title" class="display" data-final-title="data-final-title">Не ждите идеального момента для разговора</h2>
+          <p data-final-lead="data-final-lead">Позвоните сами. Даже если близкий пока отказывается признавать проблему.</p>
+          <a class="button button-signal final-call-button" href="tel:+79289633280" data-phone-link="data-phone-link">Позвонить конфиденциально</a>
+          <a class="final-phone" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Конфиденциальный звонок</small>+7 928 963-32-80</a>
         </div>
 
-        <form class="callback-form ym-hide-content" data-callback-form novalidate="novalidate" data-reveal>
+        <form class="callback-form ym-hide-content" data-callback-form="data-callback-form" novalidate="novalidate" data-reveal="data-reveal">
           <div class="form-heading">
             <h3>Попросить перезвонить</h3>
-            <p data-form-note>Оставьте номер. Свяжемся с вами в выбранное время.</p>
+            <p data-form-note="data-form-note">Оставьте номер. Свяжемся с вами в выбранное время.</p>
           </div>
           <label for="phone">Ваш телефон</label>
           <input class="ym-disable-keys" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required="required" aria-describedby="phone-error">
-          <span class="field-error" id="phone-error" data-phone-error aria-live="polite"></span>
+          <span class="field-error" id="phone-error" data-phone-error="data-phone-error" aria-live="polite"></span>
           <label for="contact-time">Когда удобно ответить</label>
           <select id="contact-time" name="contact_time">
             <option value="soon">В ближайшее время</option>
             <option value="hour">В течение часа</option>
             <option value="evening">Сегодня вечером</option>
           </select>
-          <input type="hidden" name="case" value="family" data-case-input>
+          <input type="hidden" name="case" value="family" data-case-input="data-case-input">
           <input type="hidden" name="utm_source">
           <input type="hidden" name="utm_medium">
           <input type="hidden" name="utm_campaign">
@@ -751,8 +751,8 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <input type="checkbox" name="consent" required="required">
             <span>Согласен на обработку данных для ответа на обращение. <a href="consent.html">Текст согласия</a></span>
           </label>
-          <button class="button button-signal button-submit" type="submit"><span data-submit-label>Перезвоните мне</span></button>
-          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          <button class="button button-signal button-submit" type="submit"><span data-submit-label="data-submit-label">Перезвоните мне</span></button>
+          <p class="form-status" data-form-status="data-form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -767,7 +767,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       <div class="footer-legal">
         <p><span class="placeholder">[Полное наименование юридического лица, ИНН, ОГРН]</span></p>
         <p><span class="placeholder">[Адрес центра в Ставрополе]</span></p>
-        <p>Телефон: <a href="tel:+79289633280" data-phone-link>+7 928 963-32-80</a></p>
+        <p>Телефон: <a href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a></p>
         <nav class="footer-links" aria-label="Документы">
           <a href="privacy.html">Политика обработки данных</a>
           <a href="consent.html">Согласие на обработку данных</a>
@@ -781,8 +781,8 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
     </div>
   </footer>
 
-  <div class="mobile-callbar" data-mobile-callbar>
-    <a href="tel:+79289633280" data-phone-link>
+  <div class="mobile-callbar" data-mobile-callbar="data-mobile-callbar">
+    <a href="tel:+79289633280" data-phone-link="data-phone-link">
       <span>Позвонить конфиденциально</span>
       <strong>+7 928 963-32-80</strong>
     </a>
