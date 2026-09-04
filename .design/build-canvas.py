@@ -18,10 +18,7 @@ css = (ROOT / "styles.css").read_text(encoding="utf-8")
 css = re.sub(r"@font-face \{[^}]*\}\n?", "", css)
 css = css.replace('.js.js-motion [data-reveal] { opacity: 0;', '.never [data-reveal] { opacity: 0;')
 css = css.replace('.js.js-motion [data-reveal].is-revealed', '.never [data-reveal].is-revealed')
-css = css.replace(".is-revealed .strike { background-size: 100% 3px; }", ".ledger .strike { background-size: 100% 3px; }")
-css = css.replace(".day-item.is-revealed::before", ".day-item::before")
-css = css.replace("background: var(--deep); border: 2px solid var(--on-deep-2); transition", "background: var(--signal); border: 2px solid var(--signal); transition")
-css += "\n.day-rail-fill { height: 100%; }\n.mobile-callbar { display: none !important; }\n"
+css += "\n.mobile-callbar { display: none !important; }\n"
 
 # --- body
 body = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1)
@@ -130,7 +127,7 @@ canvas = {
         {"file": "DirectionC.dc.html", "title": "Альтернатива C · Соседский двор", "x": 1540, "y": 15000, "w": 1440, "h": 900},
     ],
     "annotations": [
-        {"id": "brief", "x": 2000, "y": 0, "w": 420, "text": "Выбранное направление — «Дневник центра»: против рыночных гарантий, день по часам, четыре сценария.\n\nЯнтарные метки на странице — данные, которых пока нет: цена, срок, адрес, юрлицо, лицензия партнёра, время ответа.\n\nНиже — два альтернативных направления, набросками: только чтобы сравнить, не для сборки."}
+        {"id": "brief", "x": 2000, "y": 0, "w": 420, "text": "Версия 2.1: опыт с 2014 года, 847+ прошли программу, команда из 5 специалистов с именами и стажем, условия загородного дома, медицинский партнёр «Амадея» с лицензией, цена от 2 000 ₽ в сутки.\n\nЯнтарные метки — то, чего пока нет: юрлицо и ИНН, номер дома на Доваторцев.\n\nНиже — два альтернативных направления набросками, только для сравнения."}
     ],
     "launch": {"view": "canvas"},
 }

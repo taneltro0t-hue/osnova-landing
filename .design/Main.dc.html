@@ -131,16 +131,14 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .hero-trust li { display: flex; align-items: center; gap: 8px; }
 .hero-trust li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--leaf); }
 .hero-side { display: flex; flex-direction: column; gap: 14px; animation: rise 900ms var(--ease-out) 640ms both; }
-.hero-emergency, .hero-fact { border: 1px solid var(--on-deep-line); padding: 20px 22px; background: rgba(11, 23, 18, 0.55); backdrop-filter: blur(6px); }
-.hero-emergency-label, .hero-fact-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
-.hero-emergency-label { color: #ff8a7a; }
-.hero-emergency p:last-child, .hero-fact dd { color: var(--on-deep-2); font-size: 14.5px; line-height: 1.5; }
+.hero-emergency, .hero-facts { border: 1px solid var(--on-deep-line); padding: 20px 22px; background: rgba(11, 23, 18, 0.55); backdrop-filter: blur(6px); margin: 0; }
+.hero-emergency-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; color: #ff8a7a; }
+.hero-emergency p:last-child { color: var(--on-deep-2); font-size: 14.5px; line-height: 1.5; }
 .hero-emergency a { color: var(--on-deep); font-weight: 700; }
-.hero-fact-label { color: var(--signal); }
-.hero-fact dl { display: grid; gap: 10px; }
-.hero-fact dl div { display: grid; grid-template-columns: 44px 1fr; gap: 10px; }
-.hero-fact dt { font-family: var(--f-display); font-weight: 800; }
-.hero-fact dd { margin: 0; }
+.hero-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+.hero-facts div { display: flex; flex-direction: column; gap: 4px; }
+.hero-facts dt { font-family: var(--f-display); font-weight: 800; font-size: 28px; letter-spacing: -0.02em; line-height: 1; color: var(--signal); }
+.hero-facts dd { margin: 0; color: var(--on-deep-2); font-size: 13.5px; line-height: 1.4; }
 .hero-scroll { display: inline-flex; align-items: center; gap: 10px; margin: 52px auto 0; width: var(--shell); font-size: 13px; color: var(--on-deep-2); text-decoration: none; animation: rise 900ms var(--ease-out) 760ms both; }
 .hero-scroll svg { animation: nudge 1.8s ease-in-out infinite; }
 
@@ -150,17 +148,13 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .section-heading.narrow { max-width: 46ch; }
 .section-heading p:not(.eyebrow) { margin-top: 18px; color: var(--ink-2); font-size: 18px; }
 
-/* Обещания рынка */
-.promises { background: var(--ground); border-top: 1px solid var(--line); }
-.ledger { border-top: 1px solid var(--line-strong); counter-reset: ledger; }
-.ledger-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 20px 48px; padding: 30px 0; border-bottom: 1px solid var(--line); align-items: start; }
-.ledger-claim { font-family: var(--f-display); font-weight: 800; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -0.015em; line-height: 1.08; color: var(--ink); }
-.ledger-claim::before { counter-increment: ledger; content: counter(ledger, decimal-leading-zero); display: block; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 10px; }
-.strike { position: relative; display: inline; padding: 0 0.06em; background-image: linear-gradient(var(--danger), var(--danger)); background-repeat: no-repeat; background-size: 0% 3px; background-position: 0 58%; transition: background-size 900ms var(--ease-out) 200ms; }
-.ledger .strike { background-size: 100% 3px; }
-.ledger-answer { font-size: 17px; color: var(--ink); max-width: 56ch; padding-top: 30px; }
-.ledger-answer::before { content: "Мы:"; display: inline-block; margin-right: 8px; font-weight: 700; color: var(--forest); }
-.promises-foot { margin-top: 30px; max-width: 60ch; font-size: 18px; color: var(--ink-2); }
+/* Почему выбирают */
+.proof { background: var(--ground); border-top: 1px solid var(--line); }
+.proof-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line-strong); border-left: 1px solid var(--line-strong); }
+.proof-grid li { padding: 28px 26px 32px; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); display: flex; flex-direction: column; gap: 14px; }
+.proof-icon { width: 44px; height: 44px; display: grid; place-items: center; color: var(--forest); background: var(--ground-2); border-radius: 50%; }
+.proof-grid h3 { font-size: 20px; }
+.proof-grid p { color: var(--ink-2); font-size: 15.5px; }
 
 /* Ситуации */
 .situations { background: var(--card); border-top: 1px solid var(--line); }
@@ -181,28 +175,65 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .situation-visual-kicker { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--signal); font-weight: 600; }
 .situation-visual-content h3 { font-size: clamp(24px, 2.4vw, 32px); font-weight: 800; }
 
-/* День по часам */
-.day { background: var(--deep); color: var(--on-deep); }
-.day h2.display span { color: var(--on-deep-2); }
-.day-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr); gap: 32px; align-items: end; margin-bottom: clamp(48px, 6vw, 88px); }
-.day-heading p:not(.eyebrow) { color: var(--on-deep-2); font-size: 17px; max-width: 46ch; }
-.day-track { position: relative; }
-.day-rail { position: absolute; left: 86px; top: 0; bottom: 0; width: 2px; background: var(--on-deep-line); }
-.day-rail-fill { position: absolute; left: 0; top: 0; width: 100%; height: var(--progress, 0%); background: var(--signal); transition: height 120ms linear; }
-.day-list { display: grid; gap: 0; }
-.day-item { display: grid; grid-template-columns: 70px minmax(0, 1fr) 220px; gap: 24px clamp(20px, 3vw, 48px); align-items: start; padding: 34px 0; border-bottom: 1px solid var(--on-deep-line); position: relative; }
-.day-item::before { content: ""; position: absolute; left: 80px; top: 44px; width: 14px; height: 14px; border-radius: 50%; background: var(--signal); border: 2px solid var(--signal); transition: background 300ms ease, border-color 300ms ease; }
-.day-item::before { background: var(--signal); border-color: var(--signal); }
-.day-time { font-family: var(--f-display); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; padding-top: 2px; }
-.day-body h3 { font-size: 22px; font-weight: 700; }
-.day-body p { margin-top: 8px; color: var(--on-deep-2); max-width: 52ch; }
-.day-photo { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-media); position: relative; }
-.day-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
-.day-item:hover .day-photo img { transform: scale(1.04); }
-.day-photo figcaption { position: absolute; left: 10px; bottom: 8px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(11, 23, 18, 0.7); padding: 4px 8px; border-radius: 3px; }
-.day-item:nth-child(3) .day-body, .day-item:nth-child(8) .day-body { grid-column: 2 / 4; }
-.day-cta { margin-top: clamp(40px, 5vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 26px 0 0; }
-.day-cta p { font-size: 20px; max-width: 40ch; }
+/* Условия */
+.conditions { background: var(--deep); color: var(--on-deep); }
+.conditions h2.display span { color: var(--on-deep-2); }
+.conditions-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr); gap: 32px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+.conditions-heading p:not(.eyebrow) { color: var(--on-deep-2); font-size: 17px; max-width: 46ch; }
+.conditions-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 10px; }
+.cond-photo { margin: 0; position: relative; overflow: hidden; border-radius: var(--r-media); background: var(--deep-2); }
+.cond-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.cond-photo:hover img { transform: scale(1.04); }
+.cond-photo figcaption { position: absolute; left: 12px; bottom: 10px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(11, 23, 18, 0.72); padding: 5px 9px; border-radius: 3px; }
+.cond-photo-large { grid-column: span 2; grid-row: span 2; }
+.cond-photo-wide { grid-column: 1 / -1; }
+.conditions-facts { margin-top: clamp(36px, 5vw, 56px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--on-deep-line); }
+.conditions-facts li { padding: 22px 20px 22px 0; border-bottom: 1px solid var(--on-deep-line); display: flex; flex-direction: column; gap: 4px; }
+.conditions-facts strong { font-family: var(--f-display); font-weight: 800; font-size: 24px; letter-spacing: -0.015em; }
+.conditions-facts span { color: var(--on-deep-2); font-size: 15px; }
+
+/* Команда */
+.team { background: var(--card); border-top: 1px solid var(--line); }
+.team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.team-card { padding: 26px; border: 1px solid var(--line-strong); background: var(--ground); display: flex; flex-direction: column; gap: 8px; }
+.team-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--forest); color: var(--on-deep); display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 18px; letter-spacing: 0.04em; margin-bottom: 8px; }
+.team-card h3 { font-size: 20px; }
+.team-role { color: var(--ink); font-size: 15.5px; }
+.team-meta { color: var(--ink-2); font-size: 14px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
+.team-card-note { background: var(--forest); color: var(--on-deep); border-color: var(--forest); justify-content: center; }
+.team-card-note p { font-size: 17px; }
+.team-card-note strong { font-family: var(--f-display); font-weight: 800; font-size: 26px; display: block; margin-bottom: 8px; color: var(--signal); }
+
+/* Медицинский партнёр */
+.partner { background: var(--ground); border-top: 1px solid var(--line); }
+.partner h2.display span { color: var(--ink-2); }
+.partner-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.partner-intro p:not(.eyebrow) { margin-top: 18px; color: var(--ink-2); font-size: 18px; max-width: 46ch; }
+.partner-intro .button { margin-top: 28px; }
+.partner-card { border: 1px solid var(--forest); background: var(--forest); color: var(--on-deep); padding: 30px; }
+.partner-name { font-family: var(--f-display); font-weight: 800; font-size: 28px; letter-spacing: -0.015em; }
+.partner-license { margin-top: 8px; font-size: 13.5px; color: var(--on-deep-2); }
+.partner-services { margin-top: 22px; border-top: 1px solid var(--on-deep-line); }
+.partner-services li { padding: 12px 0; border-bottom: 1px solid var(--on-deep-line); display: flex; gap: 12px; align-items: baseline; }
+.partner-services li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--signal); transform: translateY(-1px); }
+.partner-note { margin-top: 16px; font-size: 13.5px; color: var(--on-deep-2); }
+
+/* Программа и стоимость */
+.program { background: var(--card); border-top: 1px solid var(--line); }
+.program-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 0.95fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.program-intro p:not(.eyebrow) { margin-top: 18px; color: var(--ink-2); font-size: 18px; max-width: 42ch; }
+.program-card { border: 1px solid var(--line-strong); padding: 32px; background: var(--ground); }
+.program-price { font-family: var(--f-display); font-weight: 800; font-size: clamp(38px, 4vw, 54px); letter-spacing: -0.02em; line-height: 1; }
+.program-price small { font-family: var(--f-body); font-weight: 500; font-size: 15px; letter-spacing: 0; color: var(--ink-2); }
+.program-free { margin-top: 10px; color: var(--ink-2); font-size: 15px; }
+.program-stages { margin-top: 24px; border-top: 1px solid var(--line-strong); }
+.program-stages li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.program-stages span { font-family: var(--f-display); font-weight: 800; font-size: 22px; color: var(--forest); }
+.program-stages strong { display: block; font-family: var(--f-display); font-weight: 700; font-size: 18px; }
+.program-stages em { font-style: normal; color: var(--ink-2); font-size: 14px; }
+.program-list { margin-top: 20px; }
+.program-list li { padding: 8px 0; display: flex; gap: 12px; align-items: baseline; color: var(--ink); font-size: 15.5px; }
+.program-list li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--leaf); transform: translateY(-1px); }
 
 /* После звонка */
 .call-plan { background: var(--ground); }
@@ -217,40 +248,6 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .call-plan-steps h3 { font-size: 21px; }
 .call-plan-steps p { margin-top: 8px; color: var(--ink-2); max-width: 54ch; }
 .call-plan-note { padding: 20px 0 0; font-size: 15px; color: var(--ink-2); }
-
-/* Медицина и реабилитация */
-.stages { background: var(--card); border-top: 1px solid var(--line); }
-.stages-grid { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); align-items: stretch; }
-.stage { padding: 32px; border: 1px solid var(--line-strong); }
-.stage-medical { background: #fbfcfa; }
-.stage-rehab { background: var(--forest); color: var(--on-deep); border-color: var(--forest); }
-.stage-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; color: var(--ink-3); }
-.stage-rehab .stage-label { color: var(--signal); }
-.stage h3 { font-size: 26px; font-weight: 800; }
-.stage p:not(.stage-label) { margin-top: 12px; }
-.stage-medical p:not(.stage-label) { color: var(--ink-2); }
-.stage-rehab p:not(.stage-label) { color: var(--on-deep-2); }
-.stage-owner { font-size: 14px; padding-top: 16px; margin-top: auto; border-top: 1px solid var(--line); }
-.stage-rehab .stage-owner { border-top-color: var(--on-deep-line); }
-.stage { display: flex; flex-direction: column; }
-.stage-divider { display: flex; align-items: center; justify-content: center; position: relative; }
-.stage-divider::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed var(--line-strong); }
-.stage-divider span { position: relative; background: var(--card); padding: 6px 10px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--ink-3); }
-.stages-foot { margin-top: 32px; font-size: 18px; color: var(--ink-2); }
-.stages-foot a { color: var(--forest); font-weight: 600; }
-
-/* Что входит */
-.terms { background: var(--ground); }
-.terms-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.terms-intro p:not(.eyebrow) { margin-top: 18px; color: var(--ink-2); font-size: 18px; max-width: 40ch; }
-.terms-card { border: 1px solid var(--line-strong); padding: 32px; background: var(--card); }
-.terms-price { font-family: var(--f-display); font-weight: 800; font-size: clamp(34px, 3.6vw, 48px); letter-spacing: -0.02em; line-height: 1; }
-.terms-price small { font-family: var(--f-body); font-weight: 500; font-size: 15px; letter-spacing: 0; color: var(--ink-2); }
-.terms-duration { margin-top: 10px; color: var(--ink-2); }
-.terms-list { margin-top: 24px; border-top: 1px solid var(--line); }
-.terms-list li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: baseline; }
-.terms-list li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--leaf); transform: translateY(-1px); }
-.terms-note { margin-top: 16px; font-size: 14px; color: var(--ink-2); }
 
 /* FAQ */
 .faq { background: var(--card); border-top: 1px solid var(--line); }
@@ -329,28 +326,23 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .js.js-motion [data-reveal] { opacity: 1; transform: none; }
-  .strike { background-size: 100% 3px; }
-}
+  }
 
 /* Планшет и телефон */
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-side { flex-direction: row; }
-  .hero-emergency, .hero-fact { flex: 1; }
-  .ledger-row { grid-template-columns: 1fr; gap: 12px; }
-  .ledger-answer { padding-top: 0; }
+  .hero-emergency, .hero-facts { flex: 1; }
+  .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .conditions-heading { grid-template-columns: 1fr; }
+  .conditions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; }
+  .cond-photo-large { grid-column: span 2; grid-row: span 2; }
+  .conditions-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner-grid, .program-grid { grid-template-columns: 1fr; }
   .situations-layout { grid-template-columns: 1fr; }
   .situations-visual { min-height: 460px; }
-  .day-heading { grid-template-columns: 1fr; }
-  .day-item { grid-template-columns: 62px minmax(0, 1fr); }
-  .day-item .day-photo { grid-column: 2; max-width: 320px; }
-  .day-item:nth-child(3) .day-body, .day-item:nth-child(8) .day-body { grid-column: 2; }
-  .day-rail { left: 78px; }
-  .day-item::before { left: 72px; }
-  .call-plan-grid, .terms-grid, .faq-grid, .final-grid { grid-template-columns: 1fr; }
-  .stages-grid { grid-template-columns: 1fr; }
-  .stage-divider { height: 64px; }
-  .stage-divider::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed var(--line-strong); }
+  .call-plan-grid, .faq-grid, .final-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -366,18 +358,19 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
   .situation-row { grid-template-columns: 1fr; padding-right: 48px; }
   .situation-kicker { grid-row: auto; padding-top: 0; }
   .situations-visual { min-height: 420px; }
-  .day-item { grid-template-columns: 1fr; padding-left: 34px; }
-  .day-rail { left: 8px; }
-  .day-item::before { left: 2px; top: 40px; }
-  .day-time { font-size: 20px; }
-  .day-item .day-photo { grid-column: 1; max-width: none; aspect-ratio: 16 / 10; }
-  .day-item:nth-child(3) .day-body, .day-item:nth-child(8) .day-body { grid-column: 1; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .conditions-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
+  .cond-photo-large { grid-column: span 2; grid-row: span 2; }
+  .cond-photo-wide { grid-column: 1 / -1; }
+  .conditions-facts { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .hero-facts { grid-template-columns: 1fr 1fr; }
+  .program-card, .partner-card { padding: 22px 18px; }
   .callback-form { padding: 24px 20px; }
   .mobile-callbar { display: block; }
   .site-footer { padding-bottom: 140px; }
 }
 
-.day-rail-fill { height: 100%; }
 .mobile-callbar { display: none !important; }
 
 .page { margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.55 var(--f-body); font-variant-numeric: tabular-nums; overflow-x: hidden; min-height: 100%; }
@@ -396,10 +389,10 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <path d="M20 6a14 14 0 0 0 0 28" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
           <path d="M20 1a19 19 0 0 0 0 38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
         </svg>
-        <span class="wordmark-text">ОСНОВА<small>реабилитационный центр · Ставрополь</small></span>
+        <span class="wordmark-text">ОСНОВА<small>реабилитационный центр · Ставрополь · с 2014 года</small></span>
       </a>
       <div class="header-contact">
-        <span class="header-note">Разговор конфиденциален</span>
+        <span class="header-note">Круглосуточно, конфиденциально</span>
         <a class="phone-link phone-link-header" href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a>
       </div>
     </div>
@@ -415,64 +408,62 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
         <div class="hero-copy">
           <p class="eyebrow eyebrow-light" data-hero-eyebrow="data-hero-eyebrow">Помощь семье при зависимости · Ставрополь</p>
           <h1 id="hero-title" class="display" data-hero-title="data-hero-title">Обещает бросить.<br>И всё начинается снова.</h1>
-          <p class="hero-lead" data-hero-lead="data-hero-lead">Если уговоры и контроль не работают, позвоните. За один разговор разберём, что можно сделать сегодня, и честно скажем, чем можем помочь, а чем нет.</p>
+          <p class="hero-lead" data-hero-lead="data-hero-lead">Если уговоры и контроль не работают, позвоните. За один разговор разберём, что можно сделать сегодня: от медицинской помощи до места в центре.</p>
           <div class="hero-actions">
-            <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Позвонить и разобрать ситуацию</a>
+            <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Бесплатная консультация</a>
             <a class="button button-ghost" href="#callback" data-scroll-form="data-scroll-form">Попросить перезвонить</a>
           </div>
           <a class="hero-phone" href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a>
-          <ul class="hero-trust" aria-label="Условия первого разговора">
+          <ul class="hero-trust" aria-label="Что важно знать">
+            <li>Собственный центр под Ставрополем</li>
+            <li>Врачи-наркологи со стажем от 21 года</li>
             <li>Можно обратиться без него</li>
-            <li>Без давления и осуждения</li>
-            <li>Собственный центр, не посредник</li>
           </ul>
         </div>
 
         <aside class="hero-side">
+          <dl class="hero-facts" aria-label="Центр в цифрах">
+            <div><dt>с 2014</dt><dd>работаем в Ставрополе</dd></div>
+            <div><dt>847+</dt><dd>прошли программу восстановления</dd></div>
+            <div><dt>5</dt><dd>специалистов, стаж 16–31 год</dd></div>
+            <div><dt>от 40 мин</dt><dd>выезд по краю, круглосуточно</dd></div>
+          </dl>
           <div class="hero-emergency">
             <p class="hero-emergency-label">Если прямо сейчас опасно</p>
-            <p>При потере сознания, нарушении дыхания, судорогах или угрозе себе и другим звоните <a href="tel:112">112</a>. Реабилитация начинается после острого этапа.</p>
-          </div>
-          <div class="hero-fact">
-            <p class="hero-fact-label">Что здесь есть, а чего нет</p>
-            <dl>
-              <div><dt>Есть</dt><dd>реальный центр в Ставрополе, программа восстановления, работа с семьёй</dd></div>
-              <div><dt>Нет</dt><dd>гарантий излечения, процентов ремиссии и обещаний «за 21 день»</dd></div>
-            </dl>
+            <p>При потере сознания, нарушении дыхания, судорогах или угрозе себе и другим звоните <a href="tel:112">112</a>.</p>
           </div>
         </aside>
       </div>
-      <a class="hero-scroll" href="#promises" aria-label="Перейти дальше">
-        <span>Почему мы так говорим</span>
-        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 2v11m0 0-4-4m4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
     </section>
 
-    <section class="section promises" id="promises" aria-labelledby="promises-title">
+    <section class="section proof" id="proof" aria-labelledby="proof-title">
       <div class="shell">
         <div class="section-heading" data-reveal="data-reveal">
-          <p class="eyebrow">Вы это уже читали в рекламе</p>
-          <h2 id="promises-title" class="display">Что обещают на этом рынке.<br><span>И что мы говорим вместо этого.</span></h2>
+          <p class="eyebrow">Почему семьи выбирают ОСНОВУ</p>
+          <h2 id="proof-title" class="display">Не посредник и не сайт-агрегатор.<br><span>Собственный центр, своя команда, лицензированная медицина.</span></h2>
         </div>
-        <ol class="ledger" data-reveal="data-reveal">
-          <li class="ledger-row">
-            <p class="ledger-claim"><span class="strike">Гарантия избавления от зависимости</span></p>
-            <p class="ledger-answer">Зависимость не гарантируется ни в одну сторону. Мы отвечаем за то, что в наших руках: режим, ежедневную работу с поведением и участие семьи.</p>
+        <ul class="proof-grid" data-reveal="data-reveal">
+          <li>
+            <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <h3>Свой загородный центр</h3>
+            <p>Дом в лесной зоне под Ставрополем: комнаты на 2–3 человека, охраняемая территория, круглосуточное наблюдение. Мы не перенаправляем в другой город.</p>
           </li>
-          <li class="ledger-row">
-            <p class="ledger-claim"><span class="strike">95% ремиссии</span></p>
-            <p class="ledger-answer">Никто не показывает, как посчитал. Мы не публикуем проценты, пока не можем показать, откуда они взялись.</p>
+          <li>
+            <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+            <h3>Медицина в той же связке</h3>
+            <p>Острый этап проводит клиника-партнёр «Амадея» по медицинской лицензии: консультация нарколога, детоксикация, капельницы, кодирование. Дальше реабилитация в центре.</p>
           </li>
-          <li class="ledger-row">
-            <p class="ledger-claim"><span class="strike">Вылечим за 21 день</span></p>
-            <p class="ledger-answer">Снять острое состояние можно за дни. Изменить то, что раз за разом возвращает к употреблению, за дни нельзя.</p>
+          <li>
+            <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 13.5a6 6 0 0 1 4 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <h3>Команда, которую можно назвать</h3>
+            <p>Три психиатра-нарколога, медицинский психолог и клинический психолог. Имена, должности и стаж ниже, а не «опытные специалисты» без фамилий.</p>
           </li>
-          <li class="ledger-row">
-            <p class="ledger-claim"><span class="strike">Повторный курс бесплатно, если сорвётся</span></p>
-            <p class="ledger-answer">Срыв не повод для торга. Мы заранее проговариваем с семьёй, что делаем, если он случится, и не прячем это в сноску.</p>
+          <li>
+            <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <h3>Цена известна заранее</h3>
+            <p>От 2 000 ₽ в сутки, первичная консультация бесплатно. Что входит, написано на странице, а не сообщается после поступления.</p>
           </li>
-        </ol>
-        <p class="promises-foot" data-reveal="data-reveal">Вместо обещаний ниже показываем, как здесь проходит день. Это можно проверить: приехать и посмотреть.</p>
+        </ul>
       </div>
     </section>
 
@@ -523,87 +514,143 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       </div>
     </section>
 
-    <section class="section day" id="day" aria-labelledby="day-title">
+    <section class="section conditions" id="conditions" aria-labelledby="conditions-title">
       <div class="shell">
-        <div class="day-heading" data-reveal="data-reveal">
+        <div class="conditions-heading" data-reveal="data-reveal">
           <div>
-            <p class="eyebrow eyebrow-light">Вместо процентов</p>
-            <h2 id="day-title" class="display">Один день в центре.<br><span>По часам.</span></h2>
+            <p class="eyebrow eyebrow-light">Условия</p>
+            <h2 id="conditions-title" class="display">Загородный дом,<br><span>а не палата и не общежитие.</span></h2>
           </div>
-          <p>Так выглядит будний день резидента. Точное расписание зависит от этапа программы. Лица на фотографиях скрыты ради конфиденциальности.</p>
+          <p>Реальные фотографии центра. Лица участников скрыты ради конфиденциальности. Приехать и посмотреть можно до поступления.</p>
         </div>
 
-        <div class="day-track" data-day-track="data-day-track">
-          <div class="day-rail" aria-hidden="true"><span class="day-rail-fill" data-day-fill="data-day-fill"></span></div>
-          <ol class="day-list">
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="07:30">07:30</time>
-              <div class="day-body">
-                <h3>Подъём, зарядка, порядок в комнате</h3>
-                <p>День начинается одинаково для всех. Это первое, что возвращает контроль над собой.</p>
-              </div>
-              <figure class="day-photo"><img src="bedroom.jpg" width="960" height="1280" alt="Жилая комната центра"><figcaption>Жилые комнаты</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="09:00">09:00</time>
-              <div class="day-body">
-                <h3>Утренняя группа</h3>
-                <p>Как прошла ночь, что сегодня в фокусе. Здесь учатся говорить о себе без оправданий.</p>
-              </div>
-              <figure class="day-photo"><img src="group-circle.jpg" width="960" height="1287" alt="Групповая работа в помещении центра, лица скрыты"><figcaption>Групповая работа</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="11:00">11:00</time>
-              <div class="day-body">
-                <h3>Индивидуальная работа и задания</h3>
-                <p>Разбор того, что именно возвращает к употреблению: ситуации, люди, чувства, привычные ходы.</p>
-              </div>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="13:00">13:00</time>
-              <div class="day-body">
-                <h3>Обед и дежурство по кухне</h3>
-                <p>Готовят и убирают сами, по очереди. Ответственность за общий быт входит в программу.</p>
-              </div>
-              <figure class="day-photo"><img src="kitchen.jpg" width="960" height="1287" alt="Кухня и обеденная зона центра"><figcaption>Кухня</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="15:00">15:00</time>
-              <div class="day-body">
-                <h3>Спорт, бассейн, баня по расписанию</h3>
-                <p>Тело восстанавливается медленнее, чем хочется. Нагрузка и отдых расписаны, а не оставлены на настроение.</p>
-              </div>
-              <figure class="day-photo"><img src="pool.jpg" width="960" height="1287" alt="Бассейн центра, лица скрыты"><figcaption>Бассейн</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="18:00">18:00</time>
-              <div class="day-body">
-                <h3>Вечерняя группа</h3>
-                <p>Разбор дня: что получилось, где сорвалось, что завтра. Без разбора день не считается прожитым.</p>
-              </div>
-              <figure class="day-photo"><img src="sauna.jpg" width="960" height="1287" alt="Баня центра, лица скрыты"><figcaption>Баня</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="20:00">20:00</time>
-              <div class="day-body">
-                <h3>Общий вечер во дворе</h3>
-                <p>Шашлыки, разговоры, простые дела вместе. Так возвращается чувство, что рядом есть люди.</p>
-              </div>
-              <figure class="day-photo"><img src="courtyard-evening.jpg" width="960" height="1287" alt="Совместное приготовление еды во дворе, лица скрыты"><figcaption>Двор центра</figcaption></figure>
-            </li>
-            <li class="day-item" data-reveal="data-reveal">
-              <time class="day-time" datetime="22:30">22:30</time>
-              <div class="day-body">
-                <h3>Отбой</h3>
-                <p>Ночь без телефона, без «ещё чуть-чуть». Утром всё начнётся снова, и в этом смысл.</p>
-              </div>
-            </li>
+        <div class="conditions-grid" data-reveal="data-reveal">
+          <figure class="cond-photo cond-photo-large">
+            <img src="group-circle.jpg" width="960" height="1287" alt="Групповая работа в помещении центра, лица скрыты">
+            <figcaption>Зал групповой работы</figcaption>
+          </figure>
+          <figure class="cond-photo">
+            <img src="bedroom.jpg" width="960" height="1280" alt="Жилая комната центра">
+            <figcaption>Комнаты на 2–3 человека</figcaption>
+          </figure>
+          <figure class="cond-photo">
+            <img src="kitchen.jpg" width="960" height="1287" alt="Кухня и обеденная зона центра">
+            <figcaption>Кухня, 4-разовое питание</figcaption>
+          </figure>
+          <figure class="cond-photo">
+            <img src="pool.jpg" width="960" height="1287" alt="Бассейн центра, лица скрыты">
+            <figcaption>Бассейн</figcaption>
+          </figure>
+          <figure class="cond-photo">
+            <img src="sauna.jpg" width="960" height="1287" alt="Баня центра, лица скрыты">
+            <figcaption>Баня</figcaption>
+          </figure>
+          <figure class="cond-photo cond-photo-wide">
+            <img src="courtyard-evening.jpg" width="960" height="1287" alt="Совместное приготовление еды во дворе, лица скрыты">
+            <figcaption>Двор и общие вечера</figcaption>
+          </figure>
+        </div>
+
+        <ul class="conditions-facts" data-reveal="data-reveal">
+          <li><strong>Лесная зона</strong><span>под Ставрополем, охраняемая территория</span></li>
+          <li><strong>2–3 человека</strong><span>в комнате, без общих спален</span></li>
+          <li><strong>4 раза в день</strong><span>питание, готовят на месте</span></li>
+          <li><strong>24 часа</strong><span>наблюдение и дежурный сотрудник</span></li>
+          <li><strong>Спорт</strong><span>тренажёрный зал, бассейн, баня, прогулки</span></li>
+          <li><strong>Семья на связи</strong><span>по правилам программы, а не «когда разрешат»</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section team" id="team" aria-labelledby="team-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal="data-reveal">
+          <p class="eyebrow">Команда</p>
+          <h2 id="team-title" class="display">Врачи и психологи с именами и стажем</h2>
+          <p>Медицинский этап ведут психиатры-наркологи клиники-партнёра «Амадея». Реабилитацию и работу с семьёй ведёт команда ОСНОВЫ.</p>
+        </div>
+        <ul class="team-grid" data-reveal="data-reveal">
+          <li class="team-card">
+            <span class="team-avatar" aria-hidden="true">ОК</span>
+            <h3>Коротина Ольга Викторовна</h3>
+            <p class="team-role">Медицинский психолог, автор методики ресоциализации зависимых</p>
+            <p class="team-meta">Стаж более 20 лет · ведущий специалист центра</p>
+          </li>
+          <li class="team-card">
+            <span class="team-avatar" aria-hidden="true">ОМ</span>
+            <h3>Мутаева Ольга Юрьевна</h3>
+            <p class="team-role">Психиатр-нарколог, психотерапевт, клинический психолог</p>
+            <p class="team-meta">Стаж 25 лет · медицинский партнёр «Амадея»</p>
+          </li>
+          <li class="team-card">
+            <span class="team-avatar" aria-hidden="true">ЕК</span>
+            <h3>Крон Елена Ивановна</h3>
+            <p class="team-role">Психиатр-нарколог, психиатр, психотерапевт</p>
+            <p class="team-meta">Стаж 31 год · медицинский партнёр «Амадея»</p>
+          </li>
+          <li class="team-card">
+            <span class="team-avatar" aria-hidden="true">ЖК</span>
+            <h3>Камоликова Жанна Анатольевна</h3>
+            <p class="team-role">Психиатр-нарколог, психиатр, психотерапевт</p>
+            <p class="team-meta">Стаж 21 год · медицинский партнёр «Амадея»</p>
+          </li>
+          <li class="team-card">
+            <span class="team-avatar" aria-hidden="true">ЕБ</span>
+            <h3>Борисова Елена Алексеевна</h3>
+            <p class="team-role">Клинический психолог, психолог</p>
+            <p class="team-meta">Стаж 16 лет · работа с резидентами и семьёй</p>
+          </li>
+          <li class="team-card team-card-note">
+            <p><strong>27 документов</strong> о квалификации команды: свидетельства о практике, сертификаты, благодарности. Покажем при визите или по запросу.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section partner" id="partner" aria-labelledby="partner-title">
+      <div class="shell partner-grid">
+        <div class="partner-intro" data-reveal="data-reveal">
+          <p class="eyebrow eyebrow-light">Медицинский партнёр</p>
+          <h2 id="partner-title" class="display">Сначала врачи.<br><span>Потом реабилитация. В одной связке.</span></h2>
+          <p>Многие центры либо только «снимают» состояние, либо только реабилитируют. У нас острый этап проводит лицензированная клиника, а восстановление продолжается в центре без потери времени между ними.</p>
+          <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Узнать, с чего начать</a>
+        </div>
+        <div class="partner-card" data-reveal="data-reveal">
+          <p class="partner-name">ООО «Амадея»</p>
+          <p class="partner-license">Лицензия на медицинскую деятельность Л041-01197-26/00327766 от 10.08.2021 · г. Ставрополь, ул. 45-я Параллель, 2</p>
+          <ul class="partner-services">
+            <li>Консультация психиатра-нарколога, в том числе онлайн</li>
+            <li>Дезинтоксикация и капельницы</li>
+            <li>Вывод из запоя</li>
+            <li>Кодирование по показаниям</li>
+            <li>Психотерапия при зависимости</li>
+          </ul>
+          <p class="partner-note">Медицинские услуги оказываются по показаниям и после консультации специалиста. Оплачиваются отдельно медицинской организации.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section program" id="program" aria-labelledby="program-title">
+      <div class="shell program-grid">
+        <div class="program-intro" data-reveal="data-reveal">
+          <p class="eyebrow">Программа и стоимость</p>
+          <h2 id="program-title" class="display">Три этапа. Цена известна до поступления</h2>
+          <p>Стоимость на уровне других центров Ставрополя. Разница в том, что за эти деньги: собственный дом, команда врачей и психологов, медицинский партнёр по лицензии.</p>
+        </div>
+        <div class="program-card" data-reveal="data-reveal">
+          <p class="program-price">от 2 000 <small>₽ в сутки</small></p>
+          <p class="program-free">Первичная консультация бесплатно · варианты оплаты обсуждаем по телефону</p>
+          <ol class="program-stages">
+            <li><span>1</span><div><strong>Детоксикация</strong><em>1–7 дней · клиника-партнёр</em></div></li>
+            <li><span>2</span><div><strong>Реабилитация</strong><em>3–6 месяцев · центр ОСНОВА</em></div></li>
+            <li><span>3</span><div><strong>Ресоциализация</strong><em>3 месяца · возвращение к работе и семье</em></div></li>
           </ol>
-        </div>
-
-        <div class="day-cta" data-reveal="data-reveal">
-          <p>Хотите увидеть это не на фотографиях? Спросите о визите в центр.</p>
-          <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Спросить о визите</a>
+          <ul class="program-list">
+            <li>Проживание в центре и 4-разовое питание</li>
+            <li>Ежедневные группы и индивидуальная работа с психологом</li>
+            <li>Работа с семьёй на протяжении программы</li>
+            <li>Спорт, бассейн, баня, прогулки по распорядку</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -615,7 +662,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <h2 id="call-plan-title" class="display">После звонка у вас будет план</h2>
           <p>Не нужно заранее знать диагноз, программу или правильные слова. Расскажите, что происходит дома.</p>
           <a class="phone-display" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Позвонить сейчас</small>+7 928 963-32-80</a>
-          <p class="sla-note">Отвечаем <span class="placeholder">[время ответа: подтвердить]</span></p>
+          <p class="sla-note">Телефон работает круглосуточно. Первичная консультация бесплатна.</p>
         </div>
         <ol class="call-plan-steps" data-reveal="data-reveal">
           <li>
@@ -624,7 +671,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           </li>
           <li>
             <span class="step-index">2</span>
-            <div><h3>Поймём, нужна ли сначала медицинская помощь</h3><p>Если острый этап требует врача, подскажем маршрут. Затем объясним, как не потерять время между медициной и реабилитацией.</p></div>
+            <div><h3>Решим, нужен ли сначала врач</h3><p>Если нужна детоксикация или вывод из запоя, организуем через клинику-партнёра. По краю выезд от 40 минут.</p></div>
           </li>
           <li>
             <span class="step-index">3</span>
@@ -632,52 +679,6 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           </li>
           <li class="call-plan-note">Решение о дальнейших действиях остаётся за вами. Мы не звоним повторно без вашего согласия.</li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section stages" id="stages" aria-labelledby="stages-title">
-      <div class="shell">
-        <div class="section-heading" data-reveal="data-reveal">
-          <p class="eyebrow">Честная граница услуг</p>
-          <h2 id="stages-title" class="display">Снять острое состояние мало.<br><span>Важно, чтобы всё не началось снова.</span></h2>
-        </div>
-        <div class="stages-grid" data-reveal="data-reveal">
-          <article class="stage stage-medical">
-            <p class="stage-label">Когда нужна медицина</p>
-            <h3>Безопасно пройти острый этап</h3>
-            <p>Состояние оценивают медицинские специалисты. Помощь оказывается по показаниям и только после консультации.</p>
-            <p class="stage-owner">Медицинский этап: партнёр ООО «Амадея» <span class="placeholder">[лицензия и адрес по документам]</span></p>
-          </article>
-          <div class="stage-divider" aria-hidden="true"><span>затем</span></div>
-          <article class="stage stage-rehab">
-            <p class="stage-label">Когда начинается реабилитация</p>
-            <h3>Менять то, что возвращает к употреблению</h3>
-            <p>Режим, поддержка, работа с поведением, ответственностью и возвращением к обычной жизни. Это делает «ОСНОВА».</p>
-            <p class="stage-owner">Реабилитационный этап: центр «ОСНОВА», Ставрополь</p>
-          </article>
-        </div>
-        <p class="stages-foot" data-reveal="data-reveal">Не знаете, с какого этапа начинать? Это нормально. <a href="tel:+79289633280" data-phone-link="data-phone-link">Позвоните</a>, разберём вместе.</p>
-      </div>
-    </section>
-
-    <section class="section terms" id="terms" aria-labelledby="terms-title">
-      <div class="shell terms-grid">
-        <div class="terms-intro" data-reveal="data-reveal">
-          <p class="eyebrow">Без звёздочек</p>
-          <h2 id="terms-title" class="display">Что входит и сколько стоит</h2>
-          <p>Цену называем до поступления, а не после. Рассрочку и варианты оплаты обсуждаем по телефону.</p>
-        </div>
-        <div class="terms-card" data-reveal="data-reveal">
-          <p class="terms-price"><span class="placeholder">[стоимость]</span> <small>₽ в месяц</small></p>
-          <p class="terms-duration">Программа: <span class="placeholder">[срок]</span></p>
-          <ul class="terms-list">
-            <li>Проживание в центре и питание</li>
-            <li>Ежедневные группы и индивидуальная работа</li>
-            <li>Работа с семьёй на протяжении программы</li>
-            <li>План на первые недели после выпуска</li>
-          </ul>
-          <p class="terms-note">Медицинские услуги не входят и оплачиваются отдельно медицинской организации.</p>
-        </div>
       </div>
     </section>
 
@@ -699,12 +700,16 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <p>Да. Вы можете сначала описать ситуацию сами. Это не обязывает вас принимать решение или сразу привозить человека в центр.</p>
           </details>
           <details data-faq="data-faq">
+            <summary>Сколько это стоит и что входит?</summary>
+            <p>От 2 000 ₽ в сутки: проживание, 4-разовое питание, ежедневные группы, индивидуальная работа с психологом, работа с семьёй. Медицинские услуги клиники-партнёра оплачиваются отдельно. Первичная консультация бесплатна.</p>
+          </details>
+          <details data-faq="data-faq">
             <summary>Что будет, если он сорвётся после программы?</summary>
             <p>Срыв не делает помощь бессмысленной. Мы заранее договариваемся с семьёй, что делать в этом случае, и разбираем, что предшествовало возвращению к употреблению.</p>
           </details>
           <details data-faq="data-faq">
             <summary>Чем это отличается от клиники?</summary>
-            <p>Клиника снимает острое состояние. Реабилитация занимается тем, что к нему привело: поведением, окружением, привычными ходами. Медицинский этап у нас проводит лицензированный партнёр, реабилитацию ведёт «ОСНОВА».</p>
+            <p>Клиника снимает острое состояние. Реабилитация занимается тем, что к нему привело: поведением, окружением, привычными ходами. У нас есть и то, и другое: медицинский этап проводит лицензированный партнёр, реабилитацию ведёт ОСНОВА.</p>
           </details>
           <details data-faq="data-faq">
             <summary>Кому попадёт мой номер?</summary>
@@ -721,7 +726,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <h2 id="callback-title" class="display" data-final-title="data-final-title">Не ждите идеального момента для разговора</h2>
           <p data-final-lead="data-final-lead">Позвоните сами. Даже если близкий пока отказывается признавать проблему.</p>
           <a class="button button-signal final-call-button" href="tel:+79289633280" data-phone-link="data-phone-link">Позвонить конфиденциально</a>
-          <a class="final-phone" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Конфиденциальный звонок</small>+7 928 963-32-80</a>
+          <a class="final-phone" href="tel:+79289633280" data-phone-link="data-phone-link"><small>Круглосуточно</small>+7 928 963-32-80</a>
         </div>
 
         <form class="callback-form ym-hide-content" data-callback-form="data-callback-form" novalidate="novalidate" data-reveal="data-reveal">
@@ -762,11 +767,11 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
     <div class="shell footer-grid">
       <div class="footer-brand">
         <img src="logo.png" width="600" height="175" alt="ОСНОВА. Основа — залог всего">
-        <p>Собственный реабилитационный центр в Ставрополе. Помощь при алкогольной и наркотической зависимости, работа с семьёй.</p>
+        <p>Реабилитационный центр в Ставрополе с 2014 года. Помощь при алкогольной и наркотической зависимости, работа с семьёй.</p>
       </div>
       <div class="footer-legal">
         <p><span class="placeholder">[Полное наименование юридического лица, ИНН, ОГРН]</span></p>
-        <p><span class="placeholder">[Адрес центра в Ставрополе]</span></p>
+        <p>г. Ставрополь, ул. Доваторцев <span class="placeholder">[номер дома]</span></p>
         <p>Телефон: <a href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a></p>
         <nav class="footer-links" aria-label="Документы">
           <a href="privacy.html">Политика обработки данных</a>
@@ -775,7 +780,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
         </nav>
       </div>
       <div class="medical-note">
-        <p>Медицинские услуги оказывает партнёр ООО «Амадея» при наличии показаний и после консультации специалиста. <span class="placeholder">[номер лицензии, адрес оказания услуг]</span></p>
+        <p>Медицинские услуги оказывает ООО «Амадея», лицензия Л041-01197-26/00327766 от 10.08.2021, г. Ставрополь, ул. 45-я Параллель, 2.</p>
         <strong>Имеются противопоказания. Необходима консультация специалиста.</strong>
       </div>
     </div>
@@ -783,7 +788,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 
   <div class="mobile-callbar" data-mobile-callbar="data-mobile-callbar">
     <a href="tel:+79289633280" data-phone-link="data-phone-link">
-      <span>Позвонить конфиденциально</span>
+      <span>Бесплатная консультация</span>
       <strong>+7 928 963-32-80</strong>
     </a>
   </div>
