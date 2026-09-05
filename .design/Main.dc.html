@@ -180,13 +180,13 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .conditions h2.display span { color: var(--on-deep-2); }
 .conditions-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr); gap: 32px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
 .conditions-heading p:not(.eyebrow) { color: var(--on-deep-2); font-size: 17px; max-width: 46ch; }
-.conditions-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 10px; }
+.conditions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 250px; gap: 10px; }
 .cond-photo { margin: 0; position: relative; overflow: hidden; border-radius: var(--r-media); background: var(--deep-2); }
 .cond-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .cond-photo:hover img { transform: scale(1.04); }
 .cond-photo figcaption { position: absolute; left: 12px; bottom: 10px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(11, 23, 18, 0.72); padding: 5px 9px; border-radius: 3px; }
 .cond-photo-large { grid-column: span 2; grid-row: span 2; }
-.cond-photo-wide { grid-column: 1 / -1; }
+.cond-photo-court img { object-position: center 40%; }
 .conditions-facts { margin-top: clamp(36px, 5vw, 56px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--on-deep-line); }
 .conditions-facts li { padding: 22px 20px 22px 0; border-bottom: 1px solid var(--on-deep-line); display: flex; flex-direction: column; gap: 4px; }
 .conditions-facts strong { font-family: var(--f-display); font-weight: 800; font-size: 24px; letter-spacing: -0.015em; }
@@ -196,13 +196,18 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .team { background: var(--card); border-top: 1px solid var(--line); }
 .team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .team-card { padding: 26px; border: 1px solid var(--line-strong); background: var(--ground); display: flex; flex-direction: column; gap: 8px; }
+.team-photo { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: center top; margin-bottom: 8px; }
 .team-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--forest); color: var(--on-deep); display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 18px; letter-spacing: 0.04em; margin-bottom: 8px; }
 .team-card h3 { font-size: 20px; }
 .team-role { color: var(--ink); font-size: 15.5px; }
 .team-meta { color: var(--ink-2); font-size: 14px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
 .team-card-note { background: var(--forest); color: var(--on-deep); border-color: var(--forest); justify-content: center; }
-.team-card-note p { font-size: 17px; }
-.team-card-note strong { font-family: var(--f-display); font-weight: 800; font-size: 26px; display: block; margin-bottom: 8px; color: var(--signal); }
+.docs-open { display: flex; flex-direction: column; gap: 8px; text-align: left; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.docs-open strong { font-family: var(--f-display); font-weight: 800; font-size: 28px; color: var(--signal); }
+.docs-open > span { font-size: 15.5px; color: var(--on-deep-2); }
+.docs-open-cta { margin-top: auto; padding-top: 12px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--on-deep) !important; font-size: 15px !important; }
+.docs-open-cta svg { transition: transform 200ms var(--ease-out); }
+.docs-open:hover .docs-open-cta svg { transform: translateX(4px); }
 
 /* Медицинский партнёр */
 .partner { background: var(--ground); border-top: 1px solid var(--line); }
@@ -217,6 +222,32 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .partner-services li { padding: 12px 0; border-bottom: 1px solid var(--on-deep-line); display: flex; gap: 12px; align-items: baseline; }
 .partner-services li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--signal); transform: translateY(-1px); }
 .partner-note { margin-top: 16px; font-size: 13.5px; color: var(--on-deep-2); }
+
+/* Документы */
+.docs-dialog { width: min(1100px, calc(100vw - 24px)); max-height: calc(100vh - 24px); border: 0; border-radius: var(--r-media); padding: 0; background: var(--ground); color: var(--ink); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4); }
+.docs-dialog::backdrop { background: rgba(11, 23, 18, 0.78); backdrop-filter: blur(4px); }
+.docs-dialog[open] { animation: dialog-in 320ms var(--ease-out); }
+.docs-head { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; padding: 32px 32px 20px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--ground); z-index: 2; }
+.docs-head h2 { font-size: 28px; }
+.docs-head p:not(.eyebrow) { margin-top: 8px; color: var(--ink-2); font-size: 15px; max-width: 60ch; }
+.docs-head .eyebrow { margin-bottom: 8px; }
+.docs-close { flex: none; width: 44px; height: 44px; border: 1px solid var(--line-strong); background: var(--card); border-radius: 50%; cursor: pointer; display: grid; place-items: center; }
+.docs-close:hover { background: var(--ground-2); }
+.docs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; padding: 24px 32px 32px; }
+.docs-thumb { display: flex; flex-direction: column; gap: 8px; padding: 0; border: 0; background: transparent; text-align: left; cursor: pointer; color: inherit; }
+.docs-thumb img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border: 1px solid var(--line-strong); background: #fff; transition: transform 240ms var(--ease-out), box-shadow 240ms ease; }
+.docs-thumb:hover img { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16, 28, 23, 0.18); }
+.docs-thumb span { font-size: 13px; color: var(--ink-2); line-height: 1.35; }
+.docs-thumb em { display: block; font-style: normal; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest); font-weight: 600; margin-bottom: 2px; }
+.docs-view { position: relative; padding: 24px 72px 32px; display: grid; gap: 14px; justify-items: center; }
+.docs-view figure { margin: 0; display: grid; gap: 10px; justify-items: center; width: 100%; }
+.docs-view img { max-height: calc(100vh - 240px); max-width: 100%; width: auto; border: 1px solid var(--line-strong); background: #fff; }
+.docs-view figcaption { font-size: 14px; color: var(--ink-2); }
+.docs-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--card); cursor: pointer; display: grid; place-items: center; }
+.docs-nav:hover { background: var(--ground-2); }
+.docs-prev { left: 16px; }
+.docs-next { right: 16px; }
+.docs-back { border: 0; background: transparent; color: var(--forest); font-weight: 600; cursor: pointer; padding: 8px 12px; }
 
 /* Программа и стоимость */
 .program { background: var(--card); border-top: 1px solid var(--line); }
@@ -234,6 +265,27 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .program-list { margin-top: 20px; }
 .program-list li { padding: 8px 0; display: flex; gap: 12px; align-items: baseline; color: var(--ink); font-size: 15.5px; }
 .program-list li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--leaf); transform: translateY(-1px); }
+.program-list-key { font-weight: 600; }
+.program-list-key::before { background: var(--signal) !important; }
+.program-quote { margin: 26px 0 0; padding: 20px 22px; border-left: 3px solid var(--signal); background: var(--ground); }
+.program-quote p { font-family: var(--f-display); font-weight: 700; font-size: 19px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); max-width: 40ch; }
+
+/* Контакты и карта */
+.contacts { background: var(--ground); border-top: 1px solid var(--line); }
+.contacts-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: stretch; }
+.contacts-list { margin: 28px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line-strong); }
+.contacts-list div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.contacts-list dt { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--ink-3); padding-top: 4px; }
+.contacts-list dd { margin: 0; font-size: 16px; }
+.contacts-list dd a { font-family: var(--f-display); font-weight: 800; font-size: 22px; text-decoration: none; }
+.contacts-list small { color: var(--ink-2); font-size: 14px; }
+.contacts-info .button { margin-top: 26px; }
+.contacts-map { display: flex; flex-direction: column; gap: 10px; }
+.map-frame { position: relative; flex: 1; min-height: 420px; border-radius: var(--r-media); overflow: hidden; background: var(--ground-2); border: 1px solid var(--line-strong); }
+.map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: saturate(0.75); }
+.map-placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink-3); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; }
+.map-note { font-size: 13.5px; color: var(--ink-2); }
+
 
 /* После звонка */
 .call-plan { background: var(--ground); }
@@ -318,6 +370,10 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
 .never [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity var(--dur) ease, transform var(--dur) var(--ease-out); }
 .never [data-reveal].is-revealed { opacity: 1; transform: none; }
 
+.js.js-motion [data-reveal-stagger] > * { opacity: 0; transform: translateY(16px); transition: opacity 560ms ease, transform 560ms var(--ease-out); transition-delay: var(--stagger, 0ms); }
+.js.js-motion [data-reveal-stagger].is-revealed > * { opacity: 1; transform: none; }
+.hero-media { will-change: transform; }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 @keyframes hero-settle { from { transform: scale(1.1); opacity: 0.2; } to { transform: scale(1.04); opacity: 0.5; } }
 @keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
@@ -326,6 +382,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .js.js-motion [data-reveal] { opacity: 1; transform: none; }
+  .js.js-motion [data-reveal-stagger] > * { opacity: 1; transform: none; }
   }
 
 /* Планшет и телефон */
@@ -335,8 +392,11 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
   .hero-emergency, .hero-facts { flex: 1; }
   .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .conditions-heading { grid-template-columns: 1fr; }
-  .conditions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; }
+  .conditions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 210px; }
   .cond-photo-large { grid-column: span 2; grid-row: span 2; }
+  .contacts-grid { grid-template-columns: 1fr; }
+  .docs-view { padding: 24px 16px 72px; }
+  .docs-nav { top: auto; bottom: 16px; transform: none; }
   .conditions-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .partner-grid, .program-grid { grid-template-columns: 1fr; }
@@ -361,7 +421,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
   .proof-grid { grid-template-columns: 1fr; }
   .conditions-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
   .cond-photo-large { grid-column: span 2; grid-row: span 2; }
-  .cond-photo-wide { grid-column: 1 / -1; }
+  .cond-photo-court img { object-position: center 40%; }
   .conditions-facts { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .hero-facts { grid-template-columns: 1fr 1fr; }
@@ -424,8 +484,8 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
         <aside class="hero-side">
           <dl class="hero-facts" aria-label="Центр в цифрах">
             <div><dt>с 2014</dt><dd>работаем в Ставрополе</dd></div>
-            <div><dt>847+</dt><dd>прошли программу восстановления</dd></div>
-            <div><dt>5</dt><dd>специалистов, стаж 16–31 год</dd></div>
+            <div><dt><span data-count="847">847</span>+</dt><dd>прошли программу восстановления</dd></div>
+            <div><dt><span data-count="5">5</span></dt><dd>специалистов, стаж 16–31 год</dd></div>
             <div><dt>от 40 мин</dt><dd>выезд по краю, круглосуточно</dd></div>
           </dl>
           <div class="hero-emergency">
@@ -442,7 +502,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <p class="eyebrow">Почему семьи выбирают ОСНОВУ</p>
           <h2 id="proof-title" class="display">Не посредник и не сайт-агрегатор.<br><span>Собственный центр, своя команда, лицензированная медицина.</span></h2>
         </div>
-        <ul class="proof-grid" data-reveal="data-reveal">
+        <ul class="proof-grid" data-reveal="data-reveal" data-reveal-stagger="data-reveal-stagger">
           <li>
             <span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
             <h3>Свой загородный центр</h3>
@@ -518,24 +578,24 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       <div class="shell">
         <div class="conditions-heading" data-reveal="data-reveal">
           <div>
-            <p class="eyebrow eyebrow-light">Условия</p>
-            <h2 id="conditions-title" class="display">Загородный дом,<br><span>а не палата и не общежитие.</span></h2>
+            <p class="eyebrow eyebrow-light">Среда для восстановления</p>
+            <h2 id="conditions-title" class="display">Мы создали условия,<br><span>в которых восстановление становится возможным.</span></h2>
           </div>
-          <p>Реальные фотографии центра. Лица участников скрыты ради конфиденциальности. Приехать и посмотреть можно до поступления.</p>
+          <p>Загородный дом под Ставрополем: тихо, безопасно, без соблазнов и лишних раздражителей. На фотографиях реальный центр, лица участников скрыты ради конфиденциальности. Приехать и посмотреть можно до поступления.</p>
         </div>
 
-        <div class="conditions-grid" data-reveal="data-reveal">
+        <div class="conditions-grid" data-reveal="data-reveal" data-reveal-stagger="data-reveal-stagger">
           <figure class="cond-photo cond-photo-large">
             <img src="group-circle.jpg" width="960" height="1287" alt="Групповая работа в помещении центра, лица скрыты">
             <figcaption>Зал групповой работы</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="bedroom.jpg" width="960" height="1280" alt="Жилая комната центра">
-            <figcaption>Комнаты на 2–3 человека</figcaption>
+            <figcaption>Жилые комнаты на 2–3 человека</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="kitchen.jpg" width="960" height="1287" alt="Кухня и обеденная зона центра">
-            <figcaption>Кухня, 4-разовое питание</figcaption>
+            <figcaption>Кухня и общий стол</figcaption>
           </figure>
           <figure class="cond-photo">
             <img src="pool.jpg" width="960" height="1287" alt="Бассейн центра, лица скрыты">
@@ -545,19 +605,19 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <img src="sauna.jpg" width="960" height="1287" alt="Баня центра, лица скрыты">
             <figcaption>Баня</figcaption>
           </figure>
-          <figure class="cond-photo cond-photo-wide">
-            <img src="courtyard-evening.jpg" width="960" height="1287" alt="Совместное приготовление еды во дворе, лица скрыты">
-            <figcaption>Двор и общие вечера</figcaption>
+          <figure class="cond-photo cond-photo-court">
+            <img src="courtyard-evening.jpg" width="960" height="1287" alt="Резиденты вместе готовят еду во дворе центра, лица скрыты">
+            <figcaption>Двор: готовим и ужинаем вместе</figcaption>
           </figure>
         </div>
 
-        <ul class="conditions-facts" data-reveal="data-reveal">
-          <li><strong>Лесная зона</strong><span>под Ставрополем, охраняемая территория</span></li>
-          <li><strong>2–3 человека</strong><span>в комнате, без общих спален</span></li>
-          <li><strong>4 раза в день</strong><span>питание, готовят на месте</span></li>
-          <li><strong>24 часа</strong><span>наблюдение и дежурный сотрудник</span></li>
-          <li><strong>Спорт</strong><span>тренажёрный зал, бассейн, баня, прогулки</span></li>
-          <li><strong>Семья на связи</strong><span>по правилам программы, а не «когда разрешат»</span></li>
+        <ul class="conditions-facts" data-reveal="data-reveal" data-reveal-stagger="data-reveal-stagger">
+          <li><strong>Лесная зона</strong><span>загородное расположение, охраняемая территория</span></li>
+          <li><strong>2–3 человека</strong><span>в комнате: личное пространство и спокойный сон</span></li>
+          <li><strong>4-разовое питание</strong><span>готовят на месте, в общем распорядке дня</span></li>
+          <li><strong>Круглосуточно</strong><span>наблюдение и дежурный сотрудник</span></li>
+          <li><strong>Движение и отдых</strong><span>тренажёрный зал, бассейн, баня, прогулки</span></li>
+          <li><strong>Связь с семьёй</strong><span>по правилам программы, с участием психолога</span></li>
         </ul>
       </div>
     </section>
@@ -569,9 +629,9 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <h2 id="team-title" class="display">Врачи и психологи с именами и стажем</h2>
           <p>Медицинский этап ведут психиатры-наркологи клиники-партнёра «Амадея». Реабилитацию и работу с семьёй ведёт команда ОСНОВЫ.</p>
         </div>
-        <ul class="team-grid" data-reveal="data-reveal">
+        <ul class="team-grid" data-reveal="data-reveal" data-reveal-stagger="data-reveal-stagger">
           <li class="team-card">
-            <span class="team-avatar" aria-hidden="true">ОК</span>
+            <img class="team-photo" src="korotina.jpg" width="360" height="360" alt="Ольга Викторовна Коротина">
             <h3>Коротина Ольга Викторовна</h3>
             <p class="team-role">Медицинский психолог, автор методики ресоциализации зависимых</p>
             <p class="team-meta">Стаж более 20 лет · ведущий специалист центра</p>
@@ -601,7 +661,11 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <p class="team-meta">Стаж 16 лет · работа с резидентами и семьёй</p>
           </li>
           <li class="team-card team-card-note">
-            <p><strong>27 документов</strong> о квалификации команды: свидетельства о практике, сертификаты, благодарности. Покажем при визите или по запросу.</p>
+            <button type="button" class="docs-open" data-docs-open="data-docs-open">
+              <strong>27 документов</strong>
+              <span>о квалификации команды: 7 свидетельств о практике, 17 сертификатов, 3 благодарности. Все с печатями, можно рассмотреть.</span>
+              <span class="docs-open-cta">Открыть документы <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
           </li>
         </ul>
       </div>
@@ -613,6 +677,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <p class="eyebrow eyebrow-light">Медицинский партнёр</p>
           <h2 id="partner-title" class="display">Сначала врачи.<br><span>Потом реабилитация. В одной связке.</span></h2>
           <p>Многие центры либо только «снимают» состояние, либо только реабилитируют. У нас острый этап проводит лицензированная клиника, а восстановление продолжается в центре без потери времени между ними.</p>
+          <p>Психиатры-наркологи партнёра готовы сопровождать резидента на протяжении всей реабилитации, помимо штатного психолога центра: наблюдать состояние, корректировать назначения, участвовать в разборе сложных периодов. Дополнительные специалисты оплачиваются отдельно.</p>
           <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Узнать, с чего начать</a>
         </div>
         <div class="partner-card" data-reveal="data-reveal">
@@ -624,8 +689,9 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <li>Вывод из запоя</li>
             <li>Кодирование по показаниям</li>
             <li>Психотерапия при зависимости</li>
+            <li>Сопровождение психиатром-наркологом на протяжении всей программы</li>
           </ul>
-          <p class="partner-note">Медицинские услуги оказываются по показаниям и после консультации специалиста. Оплачиваются отдельно медицинской организации.</p>
+          <p class="partner-note">Медицинские услуги оказываются по показаниям и после консультации специалиста. Оплачиваются отдельно медицинской организации; дополнительные специалисты, помимо штатного психолога, также оплачиваются отдельно.</p>
         </div>
       </div>
     </section>
@@ -636,6 +702,9 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
           <p class="eyebrow">Программа и стоимость</p>
           <h2 id="program-title" class="display">Три этапа. Цена известна до поступления</h2>
           <p>Стоимость на уровне других центров Ставрополя. Разница в том, что за эти деньги: собственный дом, команда врачей и психологов, медицинский партнёр по лицензии.</p>
+          <blockquote class="program-quote">
+            <p>Цена программы несоизмерима с ущербом от употребления: потерянные деньги, здоровье, работа и отношения стоят семье дороже каждый месяц, пока ничего не меняется.</p>
+          </blockquote>
         </div>
         <div class="program-card" data-reveal="data-reveal">
           <p class="program-price">от 2 000 <small>₽ в сутки</small></p>
@@ -650,6 +719,7 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
             <li>Ежедневные группы и индивидуальная работа с психологом</li>
             <li>Работа с семьёй на протяжении программы</li>
             <li>Спорт, бассейн, баня, прогулки по распорядку</li>
+            <li class="program-list-key">Безопасная территория без соблазнов и угрозы срыва ремиссии</li>
           </ul>
         </div>
       </div>
@@ -761,6 +831,39 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
         </form>
       </div>
     </section>
+    <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="shell contacts-grid">
+        <div class="contacts-info" data-reveal="data-reveal">
+          <p class="eyebrow">Контакты</p>
+          <h2 id="contacts-title" class="display">Ставрополь. Центр рядом, врачи рядом</h2>
+          <dl class="contacts-list">
+            <div>
+              <dt>Телефон</dt>
+              <dd><a href="tel:+79289633280" data-phone-link="data-phone-link">+7 928 963-32-80</a><br><small>круглосуточно, первичная консультация бесплатно</small></dd>
+            </div>
+            <div>
+              <dt>Реабилитационный центр</dt>
+              <dd>г. Ставрополь, ул. Доваторцев <span class="placeholder">[номер дома]</span><br><small>загородная территория, визит по договорённости</small></dd>
+            </div>
+            <div>
+              <dt>Медицинский партнёр</dt>
+              <dd>ООО «Амадея», г. Ставрополь, ул. 45-я Параллель, 2<br><small>консультация нарколога, детоксикация, вывод из запоя</small></dd>
+            </div>
+            <div>
+              <dt>Выезд по краю</dt>
+              <dd>Пятигорск, Кисловодск, Ессентуки, Минеральные Воды, Невинномысск, Михайловск и другие города<br><small>от 40 минут, круглосуточно</small></dd>
+            </div>
+          </dl>
+          <a class="button button-signal" href="tel:+79289633280" data-phone-link="data-phone-link">Позвонить</a>
+        </div>
+        <div class="contacts-map" data-reveal="data-reveal">
+          <div class="map-frame" data-map-frame="data-map-frame" data-map-src="https://yandex.ru/map-widget/v1/?text=%D0%A1%D1%82%D0%B0%D0%B2%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%94%D0%BE%D0%B2%D0%B0%D1%82%D0%BE%D1%80%D1%86%D0%B5%D0%B2&z=14">
+            <div class="map-placeholder" aria-hidden="true"><span>Карта загружается</span></div>
+          </div>
+          <p class="map-note">После подтверждения номера дома карта будет показывать точную точку центра.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -792,6 +895,8 @@ h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.01em; l
       <strong>+7 928 963-32-80</strong>
     </a>
   </div>
+
+  
 
   
 
