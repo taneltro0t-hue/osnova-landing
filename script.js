@@ -183,6 +183,7 @@
     $$("[data-phone-link]").forEach((link) => {
       link.addEventListener("click", () => {
         const placement = link.closest("header") ? "header"
+          : link.closest(".call-fab") ? "fab"
           : link.closest(".final-cta") ? "final"
           : link.closest(".mobile-callbar") ? "mobile_bar"
           : link.closest(".hero") ? "hero"
@@ -390,11 +391,16 @@
     const hero = $(".hero");
     const header = $("[data-header]");
     const bar = $("[data-mobile-callbar]");
+    const fab = $("[data-call-fab]");
+    if (fab && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInterval(() => { fab.classList.add("is-nudging"); setTimeout(() => fab.classList.remove("is-nudging"), 3200); }, 14000);
+    }
     if (!hero || !("IntersectionObserver" in window)) { header?.classList.add("is-scrolled"); return; }
     new IntersectionObserver(([en]) => {
       const past = !en.isIntersecting;
       header?.classList.toggle("is-scrolled", past);
       bar?.classList.toggle("is-visible", past);
+      fab?.classList.toggle("is-visible", past);
     }, { threshold: 0.04 }).observe(hero);
   }
 

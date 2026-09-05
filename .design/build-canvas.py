@@ -18,7 +18,7 @@ css = (ROOT / "styles.css").read_text(encoding="utf-8")
 css = re.sub(r"@font-face \{[^}]*\}\n?", "", css)
 css = css.replace('.js.js-motion [data-reveal] { opacity: 0;', '.never [data-reveal] { opacity: 0;')
 css = css.replace('.js.js-motion [data-reveal].is-revealed', '.never [data-reveal].is-revealed')
-css += "\n.mobile-callbar { display: none !important; }\n"
+css += "\n.mobile-callbar, .call-fab { display: none !important; }\n"
 
 # --- body
 body = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1)
@@ -40,6 +40,10 @@ img_map = {
     "assets/images/sauna.webp": "sauna.jpg",
     "assets/images/logo.png": "logo.png",
     "assets/images/korotina.webp": "korotina.jpg",
+    "assets/images/mutaeva.webp": "mutaeva.jpg",
+    "assets/images/kron.webp": "kron.jpg",
+    "assets/images/kamolikova.webp": "kamolikova.jpg",
+    "assets/images/borisova.webp": "borisova.jpg",
 }
 for a, b in img_map.items():
     body = body.replace(a, b)

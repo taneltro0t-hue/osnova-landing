@@ -12,7 +12,7 @@
 
 Входы для рекламы: `?case=family|alcohol|drugs|self`, либо пути `/semya`, `/alkogolizm`, `/narkomaniya`, `/sam` (если хостинг отдаёт `index.html` на эти пути). Якоря для быстрых ссылок Директа: `#proof`, `#situations`, `#conditions`, `#team`, `#partner`, `#program`, `#after-call`, `#faq`, `#callback`, `#contacts`.
 
-Документы команды (27 файлов) лежат в `assets/docs/` (миниатюры и полные версии, webp), взяты из репозитория основного сайта `osnova-web/public/images/o-centre/certificates`. Портрет Коротиной оттуда же; остальные специалисты пока с монограммами.
+Документы команды (27 файлов) лежат в `assets/docs/` (миниатюры и полные версии, webp), взяты из репозитория основного сайта `osnova-web/public/images/o-centre/certificates`. Портреты специалистов из `osnova-web/public/images/team` и `specialists`.
 
 ## Откуда взяты факты
 
@@ -25,7 +25,6 @@
 | Подвал, `privacy.html`, `consent.html` | юрлицо, ИНН, ОГРН, e-mail оператора данных |
 | Подвал | номер дома на ул. Доваторцев |
 | `config.js` | `formEndpoint` — URL приёма заявки |
-| Команда | фотографии остальных специалистов вместо монограмм, при наличии согласия |
 | Контакты | после номера дома заменить ссылку карты на точную точку (в `data-map-src` у блока карты) |
 
 ## Аналитика
